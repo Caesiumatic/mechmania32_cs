@@ -1,0 +1,165 @@
+{
+  "branch_push_pr": "external_delivery_state_not_audited",
+  "evaluated_code_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+  "evidence_checks": {
+    "bootstrap_preserved_current_strategy": true,
+    "manifest_current": true,
+    "metrics_current": true,
+    "packcheck_current": true,
+    "test_current": true
+  },
+  "failures": [],
+  "formal_submission": "not_run_requires_shi_authorization",
+  "generated_at": "2026-09-19T04:11:48.468554Z",
+  "generated_paths_ignored": {
+    ".local/bin/mm-cli": true,
+    "bot/.mm/bin/mm-engine": true,
+    "bot/Cargo.lock": true,
+    "bot/Cargo.toml": true,
+    "bot/src/core.rs": true
+  },
+  "git_diff_check": {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": ".",
+    "duration_seconds": 0.007889,
+    "exit_code": 0,
+    "timed_out": false
+  },
+  "invalid_json": [],
+  "large_files": [],
+  "latest_attempts": {
+    "bootstrap": {
+      "command": "bootstrap",
+      "exit_code": 0,
+      "generated_at": "2026-09-19T04:08:01.232823Z",
+      "schema_version": 1,
+      "status": "ok"
+    },
+    "doctor": {
+      "command": "doctor",
+      "exit_code": 0,
+      "generated_at": "2026-09-19T04:07:57.928352Z",
+      "schema_version": 1,
+      "status": "ok"
+    },
+    "packcheck": {
+      "command": "packcheck",
+      "exit_code": 0,
+      "generated_at": "2026-09-19T04:08:29.865059Z",
+      "schema_version": 1,
+      "status": "ok"
+    },
+    "smoke": {
+      "command": "smoke",
+      "exit_code": 0,
+      "generated_at": "2026-09-19T04:08:14.079933Z",
+      "schema_version": 1,
+      "status": "ok"
+    },
+    "test": {
+      "command": "test",
+      "exit_code": 0,
+      "generated_at": "2026-09-19T04:08:05.072507Z",
+      "schema_version": 1,
+      "status": "ok"
+    }
+  },
+  "packcheck": {
+    "binary": {
+      "bytes": 998032,
+      "path": ".local/target/packcheck/20260919T040817Z/release/bot",
+      "sha256": "05f173c382c123f3586a24dd13a3114f683c4c159a36ba9dada3a2e93f1c0130"
+    },
+    "build_toolchain_used": "stable",
+    "command": {
+      "argv": [
+        "cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/tmp/packcheck-buubrf0n/bot/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 12.074254,
+      "exit_code": 0,
+      "log_bytes": 2149,
+      "log_path": ".local/records/logs/packcheck.log",
+      "log_sha256": "2f54e908293066d4fd0ffa927ed329134676ea399cb238f503fa9024c0d7ad62",
+      "timed_out": false
+    },
+    "declared_upstream_toolchain": "nightly-2024-07-25",
+    "generated_at": "2026-09-19T04:08:29.861871Z",
+    "only_strategy_restored": true,
+    "schema_version": 1,
+    "server_submission_validation": "not_run_requires_shi_authorization",
+    "status": "ok",
+    "strategy_copied_sha256": "9bbc438e5e66905e24ee5b3e1449c356cc4848351b6bfb2fbdac0e42e04ca4b8",
+    "strategy_source_sha256": "9bbc438e5e66905e24ee5b3e1449c356cc4848351b6bfb2fbdac0e42e04ca4b8",
+    "toolchain_override_reason": "The pinned nightly Cargo cannot parse current locked edition-2024 dependencies; see .local/diagnostics/nightly-bot-test.log."
+  },
+  "repository": {
+    "branch": "main",
+    "head": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+    "remote_origin": "https://github.com/Caesiumatic/mechmania32_cs.git",
+    "status_porcelain": [
+      "?? artifacts/feedback/latest.json",
+      "?? artifacts/summaries/m01/audit.json",
+      "?? artifacts/summaries/m01/manifest.json",
+      "?? artifacts/summaries/m01/metrics.json",
+      "?? docs/reports/mechmania32_report1.md"
+    ]
+  },
+  "required_paths": {
+    "README.md": true,
+    "artifacts/feedback/latest.json": true,
+    "artifacts/summaries/m01/manifest.json": true,
+    "artifacts/summaries/m01/metrics.json": true,
+    "bot/mm-config.toml": true,
+    "bot/src/strategy/controller.rs": true,
+    "configs/baseline.json": true,
+    "configs/suites/smoke.json": true,
+    "configs/upstream.lock.json": true,
+    "docs/reports/mechmania32_report1.md": true,
+    "docs/rules/mechmania32_rules1.md": true,
+    "lab/rules/Cargo.lock": true,
+    "lab/rules/Cargo.toml": true,
+    "lab/rules/tests/contracts.rs": true
+  },
+  "round": 1,
+  "schema_version": 1,
+  "secret_findings": [],
+  "source_whitespace_findings": [],
+  "status": "pass_with_warnings",
+  "version_combo": {
+    "accepted": true,
+    "client": "879578d448251d0acc7f10eef3d7fe5450758096",
+    "live_checks": {
+      "bot_lockfile_sha256": true,
+      "bot_manifest_sha256": true,
+      "cli_archive_sha256": true,
+      "cli_binary_sha256": true,
+      "client_commit_in_cargo_lock": true,
+      "compatibility_audited": true,
+      "engine_archive_sha256": true,
+      "engine_binary_sha256": true,
+      "expected_client_commit": true,
+      "expected_runtime_commit": true,
+      "mm_lock_engine_commit": true,
+      "mm_lock_sha256": true,
+      "mm_lock_starter_commit": true,
+      "starterpack_archive_sha256": true,
+      "wiki_archive_sha256": true
+    },
+    "runtime": "4cbd3467e6617e330d42cb78ae3327ab2c88926a"
+  },
+  "warnings": [
+    "仅报告/机器证据晚于代码提交；evaluated_code_commit 绑定当前 HEAD",
+    "上游声明 nightly-2024-07-25，但当前 lock 依赖需 edition2024；构建与 packcheck 使用 stable"
+  ]
+}

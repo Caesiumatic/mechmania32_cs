@@ -1,0 +1,580 @@
+{
+  "binaries": {
+    "candidate": {
+      "bytes": 998032,
+      "path": ".local/target/bot/release/bot",
+      "sha256": "05f173c382c123f3586a24dd13a3114f683c4c159a36ba9dada3a2e93f1c0130"
+    },
+    "engine": {
+      "bytes": 1930888,
+      "path": "bot/.mm/bin/mm-engine",
+      "sha256": "a07ca18f9d277f2c0d6b191edcb1eaebb0c02a10140283564b29ac5fe5d667a4"
+    },
+    "opponents": {
+      "rush_simple": {
+        "bytes": 919456,
+        "path": ".local/target/opponents/rush_simple/release/bot",
+        "sha256": "47f4a2da669eca6092f19870d30464eabd0fc20ea091fd9c72df9d652413c86b"
+      },
+      "starter_symmetric": {
+        "bytes": 921168,
+        "path": ".local/target/opponents/starter_symmetric/release/bot",
+        "sha256": "480c6f88f86e975751e7a660877d5ab41f2d6e1642aaedd3890206d30ac97f84"
+      }
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "rustfmt",
+        "+stable",
+        "--edition",
+        "2021",
+        "--check",
+        "$REPO/bot/src/strategy/controller.rs",
+        "$REPO/bot/src/strategy/economy.rs",
+        "$REPO/bot/src/strategy/geometry.rs",
+        "$REPO/bot/src/strategy/main.rs",
+        "$REPO/bot/src/strategy/mod.rs",
+        "$REPO/bot/src/strategy/tactics.rs",
+        "$REPO/bot/src/strategy/telemetry.rs",
+        "$REPO/lab/opponents/rush_simple/main.rs",
+        "$REPO/lab/opponents/starter_symmetric/main.rs",
+        "$REPO/lab/rules/src/lib.rs",
+        "$REPO/lab/rules/tests/contracts.rs"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.074707,
+      "exit_code": 0,
+      "label": "strategy rustfmt check",
+      "log_bytes": 0,
+      "log_path": ".local/records/logs/test-20260919T040804Z/rustfmt-strategy.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cargo",
+        "+stable",
+        "test",
+        "--locked",
+        "--manifest-path",
+        "$REPO/bot/Cargo.toml"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.167298,
+      "exit_code": 0,
+      "label": "bot tests",
+      "log_bytes": 716,
+      "log_path": ".local/records/logs/test-20260919T040804Z/bot-tests.log",
+      "log_sha256": "ab1fde47a340a521cac5ddef85337f094b5d363f1b8c52e7d97f7401eb1d0108",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cargo",
+        "+stable",
+        "test",
+        "--locked",
+        "--manifest-path",
+        "$REPO/lab/rules/Cargo.toml"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.236125,
+      "exit_code": 0,
+      "label": "rules tests",
+      "log_bytes": 1861,
+      "log_path": ".local/records/logs/test-20260919T040804Z/rules-tests.log",
+      "log_sha256": "597072b5cc0565234843157fd0a431f64b5cb7a06cb67184947d9888cb195667",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/bot/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.088271,
+      "exit_code": 0,
+      "label": "bot release build",
+      "log_bytes": 62,
+      "log_path": ".local/records/logs/test-20260919T040804Z/bot-release.log",
+      "log_sha256": "64d0cbd4b7e4c6329fde55978dd3d261407b55f34c21add0feebf7e0575ee531",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.016656,
+      "exit_code": 0,
+      "label": "git diff check",
+      "log_bytes": 0,
+      "log_path": ".local/records/logs/test-20260919T040804Z/git-diff-check.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/bot/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.076219,
+      "exit_code": 0,
+      "label": "build candidate",
+      "log_bytes": 62,
+      "log_path": ".local/records/logs/smoke-candidate-build.log",
+      "log_sha256": "92434e198f27984c035c376ec77a7cf9e6ebdde782f8ccb1336ae3329b66ddb7",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/opponents/starter_symmetric/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.088972,
+      "exit_code": 0,
+      "label": "build opponent starter_symmetric",
+      "log_bytes": 62,
+      "log_path": ".local/records/logs/opponents/starter_symmetric.log",
+      "log_sha256": "64d0cbd4b7e4c6329fde55978dd3d261407b55f34c21add0feebf7e0575ee531",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/opponents/rush_simple/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.091857,
+      "exit_code": 0,
+      "label": "build opponent rush_simple",
+      "log_bytes": 62,
+      "log_path": ".local/records/logs/opponents/rush_simple.log",
+      "log_sha256": "64d0cbd4b7e4c6329fde55978dd3d261407b55f34c21add0feebf7e0575ee531",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/bot/.mm/bin/mm-engine",
+        "$REPO/.local/target/bot/release/bot",
+        "$REPO/.local/target/opponents/starter_symmetric/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-a-r1/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-a-r1/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-a-r1/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 1.003883,
+      "exit_code": 0,
+      "label": "starter-symmetric-candidate-a-r1",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-a-r1/runner.log",
+      "log_sha256": "d0c4dc131ed58fee42ce192b63978cc2f44ee1dcf6999851fe7cec19927feb06",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/bot/.mm/bin/mm-engine",
+        "$REPO/.local/target/opponents/starter_symmetric/release/bot",
+        "$REPO/.local/target/bot/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-b-r1/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-b-r1/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-b-r1/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.371816,
+      "exit_code": 0,
+      "label": "starter-symmetric-candidate-b-r1",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-b-r1/runner.log",
+      "log_sha256": "cd0011d17295328eed22b930467a2892d7b99501e4bdf3cc36dd8cc5840bc6fa",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/bot/.mm/bin/mm-engine",
+        "$REPO/.local/target/bot/release/bot",
+        "$REPO/.local/target/opponents/starter_symmetric/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-a-r2/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-a-r2/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-a-r2/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.332481,
+      "exit_code": 0,
+      "label": "starter-symmetric-candidate-a-r2",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-a-r2/runner.log",
+      "log_sha256": "d0c4dc131ed58fee42ce192b63978cc2f44ee1dcf6999851fe7cec19927feb06",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/bot/.mm/bin/mm-engine",
+        "$REPO/.local/target/opponents/starter_symmetric/release/bot",
+        "$REPO/.local/target/bot/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-b-r2/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-b-r2/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-b-r2/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.380169,
+      "exit_code": 0,
+      "label": "starter-symmetric-candidate-b-r2",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m01-smoke/run-20260919T040810Z/starter-symmetric-candidate-b-r2/runner.log",
+      "log_sha256": "cd0011d17295328eed22b930467a2892d7b99501e4bdf3cc36dd8cc5840bc6fa",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/bot/.mm/bin/mm-engine",
+        "$REPO/.local/target/bot/release/bot",
+        "$REPO/.local/target/opponents/rush_simple/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-a-r1/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-a-r1/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-a-r1/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.498209,
+      "exit_code": 0,
+      "label": "rush-simple-candidate-a-r1",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-a-r1/runner.log",
+      "log_sha256": "d0c4dc131ed58fee42ce192b63978cc2f44ee1dcf6999851fe7cec19927feb06",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/bot/.mm/bin/mm-engine",
+        "$REPO/.local/target/opponents/rush_simple/release/bot",
+        "$REPO/.local/target/bot/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-b-r1/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-b-r1/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-b-r1/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.296366,
+      "exit_code": 0,
+      "label": "rush-simple-candidate-b-r1",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-b-r1/runner.log",
+      "log_sha256": "cd0011d17295328eed22b930467a2892d7b99501e4bdf3cc36dd8cc5840bc6fa",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/bot/.mm/bin/mm-engine",
+        "$REPO/.local/target/bot/release/bot",
+        "$REPO/.local/target/opponents/rush_simple/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-a-r2/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-a-r2/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-a-r2/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.279102,
+      "exit_code": 0,
+      "label": "rush-simple-candidate-a-r2",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-a-r2/runner.log",
+      "log_sha256": "d0c4dc131ed58fee42ce192b63978cc2f44ee1dcf6999851fe7cec19927feb06",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/bot/.mm/bin/mm-engine",
+        "$REPO/.local/target/opponents/rush_simple/release/bot",
+        "$REPO/.local/target/bot/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-b-r2/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-b-r2/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-b-r2/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 0.294916,
+      "exit_code": 0,
+      "label": "rush-simple-candidate-b-r2",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m01-smoke/run-20260919T040810Z/rush-simple-candidate-b-r2/runner.log",
+      "log_sha256": "cd0011d17295328eed22b930467a2892d7b99501e4bdf3cc36dd8cc5840bc6fa",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/tmp/packcheck-buubrf0n/bot/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 12.074254,
+      "exit_code": 0,
+      "label": "packcheck release build",
+      "log_bytes": 2149,
+      "log_path": ".local/records/logs/packcheck.log",
+      "log_sha256": "2f54e908293066d4fd0ffa927ed329134676ea399cb238f503fa9024c0d7ad62",
+      "timed_out": false
+    }
+  ],
+  "configs": {
+    "baseline": {
+      "bytes": 2346,
+      "path": "configs/baseline.json",
+      "sha256": "22b5bc706306eba6f558c14260fe4a3307575cdbb3da12649ca3760d1be42110"
+    },
+    "plan": {
+      "bytes": 53319,
+      "sha256": "c6dd960ac4f0a9df0ddd5916879ec1280e2266983928b4f729d8e5fdaa8eb9ad"
+    },
+    "prompt": {
+      "bytes": 25762,
+      "sha256": "843e7a26c3835aa9934958af9c684ee99f195a6dc39624eb87efae7e0c67f89b"
+    },
+    "smoke_suite": {
+      "bytes": 3072,
+      "path": "configs/suites/smoke.json",
+      "sha256": "a6fa2c8c6922a02489150f207de4eb44e3cc60ff68f2c3d262d8bc43e31a456a"
+    },
+    "upstream_lock": {
+      "bytes": 4368,
+      "path": "configs/upstream.lock.json",
+      "sha256": "52d078c3a61b191f5a6b2e96f16a7e0cdb62ce9330f0dc06aaa8ab99b05caf09"
+    }
+  },
+  "environment": {
+    "machine": "arm64",
+    "os": "Darwin",
+    "os_release": "25.3.0",
+    "pinned_nightly_diagnostic": ".local/diagnostics/nightly-bot-test.log",
+    "python": "3.14.3",
+    "rust_toolchain_used": "stable"
+  },
+  "evaluated_code_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+  "formal_match_count": 8,
+  "generated_at": "2026-09-19T04:08:14.073935Z",
+  "inputs": {
+    "baseline": "22b5bc706306eba6f558c14260fe4a3307575cdbb3da12649ca3760d1be42110",
+    "opponents_tree": "db661c8ead57fd8b264692bb67e92e7b2a0523274c33c6c184b3c2fe90b2faac",
+    "rules_tree": "cdc7cff648e1f76c147035dbfa2936e4a49e6041914f440aebfe753b00c4482f",
+    "smoke_suite": "a6fa2c8c6922a02489150f207de4eb44e3cc60ff68f2c3d262d8bc43e31a456a",
+    "strategy_tree": "9bbc438e5e66905e24ee5b3e1449c356cc4848351b6bfb2fbdac0e42e04ca4b8",
+    "upstream_lock": "52d078c3a61b191f5a6b2e96f16a7e0cdb62ce9330f0dc06aaa8ab99b05caf09",
+    "workflow_tool": "d788bb4f40f7ec8d00c7bbde9ccd30ca1baad10788d25e268a0f9373bccfb455"
+  },
+  "packcheck": {
+    "binary": {
+      "bytes": 998032,
+      "path": ".local/target/packcheck/20260919T040817Z/release/bot",
+      "sha256": "05f173c382c123f3586a24dd13a3114f683c4c159a36ba9dada3a2e93f1c0130"
+    },
+    "build_toolchain_used": "stable",
+    "command": {
+      "argv": [
+        "cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/tmp/packcheck-buubrf0n/bot/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 12.074254,
+      "exit_code": 0,
+      "log_bytes": 2149,
+      "log_path": ".local/records/logs/packcheck.log",
+      "log_sha256": "2f54e908293066d4fd0ffa927ed329134676ea399cb238f503fa9024c0d7ad62",
+      "timed_out": false
+    },
+    "declared_upstream_toolchain": "nightly-2024-07-25",
+    "generated_at": "2026-09-19T04:08:29.861871Z",
+    "only_strategy_restored": true,
+    "schema_version": 1,
+    "server_submission_validation": "not_run_requires_shi_authorization",
+    "status": "ok",
+    "strategy_copied_sha256": "9bbc438e5e66905e24ee5b3e1449c356cc4848351b6bfb2fbdac0e42e04ca4b8",
+    "strategy_source_sha256": "9bbc438e5e66905e24ee5b3e1449c356cc4848351b6bfb2fbdac0e42e04ca4b8",
+    "toolchain_override_reason": "The pinned nightly Cargo cannot parse current locked edition-2024 dependencies; see .local/diagnostics/nightly-bot-test.log."
+  },
+  "repository": {
+    "branch": "main",
+    "head": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+    "remote_origin": "https://github.com/Caesiumatic/mechmania32_cs.git",
+    "status_porcelain": [
+      "?? artifacts/feedback/latest.json",
+      "?? artifacts/summaries/m01/audit.json",
+      "?? artifacts/summaries/m01/manifest.json",
+      "?? artifacts/summaries/m01/metrics.json",
+      "?? docs/reports/mechmania32_report1.md"
+    ]
+  },
+  "round": 1,
+  "run_root": ".local/runs/m01-smoke/run-20260919T040810Z",
+  "schema_version": 1,
+  "seed": {
+    "engine_seed": null,
+    "engine_seed_controlled": false,
+    "policy_seed": null,
+    "reason": "The audited engine exposes no seed CLI option; repetitions use process randomness."
+  },
+  "time_enforcement": true,
+  "upstream": {
+    "bot_dependency": {
+      "crate": "mm-engine",
+      "default_features": false,
+      "features": [
+        "client"
+      ],
+      "locked_rev": "879578d448251d0acc7f10eef3d7fe5450758096",
+      "lockfile_path": "bot/Cargo.lock",
+      "lockfile_sha256": "509d2cdba699d035ae8fdbc42d3973f2751e909b2f3cb745bb32bb6ff37ba8e2",
+      "manifest_path": "bot/Cargo.toml",
+      "manifest_sha256": "2ebdb0e5647fb90c3b762cdaf2d7e4f55e221086af9f8c77032bdc079929ace1",
+      "repository_url": "https://github.com/mechmania/engine.git",
+      "requested_rev": null
+    },
+    "cli_binary": {
+      "path": ".local/target/cli/release/mm-cli",
+      "platform": "aarch64-apple-darwin",
+      "sha256": "85daf9e00bc39dd45e530759328cd90210e6f857e34737c1bb61a27eecf92953",
+      "source_commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+      "version_output": "mm-cli 0.1.0"
+    },
+    "client_runtime_compatibility": {
+      "changed_paths": [
+        "src/game/action.rs"
+      ],
+      "client_commit": "879578d448251d0acc7f10eef3d7fe5450758096",
+      "client_feature_affected": false,
+      "compare_url": "https://github.com/mechmania/engine/compare/879578d448251d0acc7f10eef3d7fe5450758096...4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+      "reason": "The runtime adds the engine-only same-tick shot-death plus self-destruct removal fix; the client feature does not compile action.rs.",
+      "runtime_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+      "runtime_commits_ahead": 1,
+      "status": "accepted"
+    },
+    "engine_binary": {
+      "path": "bot/.mm/bin/mm-engine",
+      "platform": "aarch64-apple-darwin",
+      "sha256": "a07ca18f9d277f2c0d6b191edcb1eaebb0c02a10140283564b29ac5fe5d667a4",
+      "source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+      "source_lock_path": "bot/.mm/lock.toml",
+      "source_lock_sha256": "6d6f835a17969086ea2228f754822989f92a20a8c7779a71ab194c9f06f540db",
+      "source_lock_template_path": "configs/mm-cli-lock.toml",
+      "version_output": "mm-engine 0.1.0"
+    },
+    "schema_version": 1,
+    "source": {
+      "audit_date": "2026-09-18",
+      "base_commit": "f02be38adce7fcf8e7dd5b5f8623c147bb8c449d",
+      "kind": "audited_upstream_snapshot",
+      "repository": "Caesiumatic/mechmania32_cs"
+    },
+    "sources": {
+      "cli": {
+        "archive_sha256": "3fcf97825033b37ad92049d0914e81760542f36842eb04e44dfaa71bee4fb1e3",
+        "archive_url": "https://github.com/mechmania/cli/archive/4c5bb2f33d7fdee10e9d8f311f382ff198b81214.tar.gz",
+        "commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+        "local_archive": ".local/downloads/cli-4c5bb2f3.tar.gz",
+        "local_source": ".local/upstream/cli",
+        "repository_url": "https://github.com/mechmania/cli.git",
+        "rust_toolchain": "nightly-2024-07-25"
+      },
+      "engine": {
+        "archive_sha256": "7940b76b9365bf36501c23462ed1334ca43df8e05821f33f58160bd56f2332d7",
+        "archive_url": "https://github.com/mechmania/engine/archive/4cbd3467e6617e330d42cb78ae3327ab2c88926a.tar.gz",
+        "commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+        "local_archive": ".local/downloads/engine-4cbd3467.tar.gz",
+        "local_source": ".local/upstream/engine",
+        "repository_url": "https://github.com/mechmania/engine.git",
+        "rust_toolchain": "nightly-2024-07-25"
+      },
+      "starterpack": {
+        "archive_sha256": "fdeb22694a86ea86e9c2460bcefe89916df17dfd0fc18751c0fe55289eb8f694",
+        "archive_url": "https://github.com/mechmania/rust-starterpack/archive/f9960353f414938002ea2bb18161b6851a71c40c.tar.gz",
+        "commit": "f9960353f414938002ea2bb18161b6851a71c40c",
+        "local_archive": ".local/downloads/rust-starterpack-f9960353.tar.gz",
+        "local_source": ".local/upstream/rust-starterpack",
+        "repository_url": "https://github.com/mechmania/rust-starterpack.git",
+        "rust_toolchain": "nightly-2024-07-25"
+      },
+      "wiki": {
+        "archive_sha256": "0e1260aee9951d2398bbfb8d3e0a3757d50b3570e8d5c40ea239b0af2972bc23",
+        "archive_url": "https://github.com/mechmania/wiki/archive/6af083bb4c28a4e18d2f7fcdda5a380aebc0545f.tar.gz",
+        "commit": "6af083bb4c28a4e18d2f7fcdda5a380aebc0545f",
+        "local_archive": ".local/downloads/wiki-6af083bb.tar.gz",
+        "local_source": ".local/upstream/wiki",
+        "repository_url": "https://github.com/mechmania/wiki.git"
+      }
+    },
+    "version": "m01-v1"
+  },
+  "workflow_records": {
+    "bootstrap": {
+      "bytes": 514,
+      "path": ".local/records/bootstrap-latest.json",
+      "sha256": "aecf0eca0c91896822a0a7bbea6bd2d049cda9eb51bc92279810f4d98119dccf"
+    },
+    "doctor": {
+      "bytes": 1648,
+      "path": ".local/records/doctor-latest.json",
+      "sha256": "7bd9d145d606c8fb6bad19dd986a846b06873289c49a61efbc212f8bad61a6e3"
+    },
+    "test": {
+      "bytes": 3935,
+      "path": ".local/records/test-latest.json",
+      "sha256": "0040925dad0725b6d5a630b9da7e0d96c4a967b826898c9d82d1372b7d8690a3"
+    }
+  },
+  "working_tree_strategy_sha256": "9bbc438e5e66905e24ee5b3e1449c356cc4848351b6bfb2fbdac0e42e04ca4b8"
+}

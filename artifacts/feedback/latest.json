@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "round": 1,
+  "task": "M1",
+  "status": "completed",
+  "repository": "Caesiumatic/mechmania32_cs",
+  "branch": "main",
+  "base_commit": "f02be38adce7fcf8e7dd5b5f8623c147bb8c449d",
+  "evaluated_code_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+  "upstream": {
+    "engine": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+    "bot_client_engine": "879578d448251d0acc7f10eef3d7fe5450758096",
+    "wiki": "6af083bb4c28a4e18d2f7fcdda5a380aebc0545f",
+    "starterpack": "f9960353f414938002ea2bb18161b6851a71c40c",
+    "cli": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214"
+  },
+  "report_path": "docs/reports/mechmania32_report1.md",
+  "rules_path": "docs/rules/mechmania32_rules1.md",
+  "metrics_path": "artifacts/summaries/m01/metrics.json",
+  "manifest_path": "artifacts/summaries/m01/manifest.json",
+  "audit_path": "artifacts/summaries/m01/audit.json",
+  "tests": {
+    "passed": 22,
+    "failed": 0,
+    "skipped": 0
+  },
+  "formal_matches_completed": 8,
+  "engine_seed_controlled": false,
+  "blockers": [],
+  "next_questions": [
+    "Should the organizer confirm whether endgame mining follows current engine CODE behavior or the conflicting Wiki DOC text (R24)?",
+    "May the locally validated package be submitted to the official service for server-side validation?"
+  ]
+}
