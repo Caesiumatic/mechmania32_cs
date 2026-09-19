@@ -5,7 +5,12 @@
     "engine_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
     "engine_source_path": ".local/upstream/engine/src/engine.rs",
     "engine_binary_path": "bot/.mm/bin/mm-engine",
-    "engine_binary_sha256": "a07ca18f9d277f2c0d6b191edcb1eaebb0c02a10140283564b29ac5fe5d667a4",
+    "engine_build_record_path": ".local/records/builds/engine.json",
+    "m01_observed_engine_binary": {
+      "sha256": "a07ca18f9d277f2c0d6b191edcb1eaebb0c02a10140283564b29ac5fe5d667a4",
+      "platform": "aarch64-apple-darwin",
+      "normative_for_other_hosts": false
+    },
     "capture_method": "First GameConfig JSON line emitted by the official engine binary before bot startup."
   },
   "policy_id": "v0",

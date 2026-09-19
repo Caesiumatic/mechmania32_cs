@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "round": "m02",
+  "suite_id": "m02-regression",
+  "description": "v1 against the two M1 weak baselines, both sides, two repetitions.",
+  "classification": "formal",
+  "fixture_path": "lab/fixtures/default_config.json",
+  "time_enforcement": true,
+  "no_time_limit": false,
+  "serial": true,
+  "parallelism": 1,
+  "match_timeout_seconds": 300,
+  "expected_matches": 8,
+  "candidates": [
+    {
+      "id": "v1",
+      "source": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy"
+      }
+    }
+  ],
+  "opponents": [
+    {
+      "id": "starter_symmetric",
+      "source": {
+        "kind": "single_file",
+        "path": "lab/opponents/starter_symmetric/main.rs",
+        "upstream_commit": "f9960353f414938002ea2bb18161b6851a71c40c"
+      }
+    },
+    {
+      "id": "rush_simple",
+      "source": {
+        "kind": "single_file",
+        "path": "lab/opponents/rush_simple/main.rs"
+      }
+    }
+  ],
+  "matches": [
+    {"id": "v1-starter-a-r1", "candidate": "v1", "opponent": "starter_symmetric", "candidate_side": "a", "repetition": 1},
+    {"id": "v1-starter-b-r1", "candidate": "v1", "opponent": "starter_symmetric", "candidate_side": "b", "repetition": 1},
+    {"id": "v1-starter-a-r2", "candidate": "v1", "opponent": "starter_symmetric", "candidate_side": "a", "repetition": 2},
+    {"id": "v1-starter-b-r2", "candidate": "v1", "opponent": "starter_symmetric", "candidate_side": "b", "repetition": 2},
+    {"id": "v1-rush-a-r1", "candidate": "v1", "opponent": "rush_simple", "candidate_side": "a", "repetition": 1},
+    {"id": "v1-rush-b-r1", "candidate": "v1", "opponent": "rush_simple", "candidate_side": "b", "repetition": 1},
+    {"id": "v1-rush-a-r2", "candidate": "v1", "opponent": "rush_simple", "candidate_side": "a", "repetition": 2},
+    {"id": "v1-rush-b-r2", "candidate": "v1", "opponent": "rush_simple", "candidate_side": "b", "repetition": 2}
+  ],
+  "seed": {
+    "engine_seed_controlled": false,
+    "engine_seed": null,
+    "policy_seed": null,
+    "reason": "The pinned engine exposes no seed CLI option; repetitions use process randomness."
+  }
+}

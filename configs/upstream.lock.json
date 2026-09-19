@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "version": "m01-v1",
+  "schema_version": 2,
+  "version": "m02-source-v1",
   "source": {
     "kind": "audited_upstream_snapshot",
     "repository": "Caesiumatic/mechmania32_cs",
@@ -15,6 +15,10 @@
       "archive_sha256": "7940b76b9365bf36501c23462ed1334ca43df8e05821f33f58160bd56f2332d7",
       "local_archive": ".local/downloads/engine-4cbd3467.tar.gz",
       "local_source": ".local/upstream/engine",
+      "file_sha256": {
+        "Cargo.lock": "758d38acdd4a066c09a53f5fd55cc2b54e7b1f9c3041c633173d87a40ee82f1d",
+        "Cargo.toml": "73df7239c844fbad60c2ed6d99e8459686cc6a858fc5ab04c14f5fe098694cf1"
+      },
       "rust_toolchain": "nightly-2024-07-25"
     },
     "wiki": {
@@ -23,7 +27,11 @@
       "commit": "6af083bb4c28a4e18d2f7fcdda5a380aebc0545f",
       "archive_sha256": "0e1260aee9951d2398bbfb8d3e0a3757d50b3570e8d5c40ea239b0af2972bc23",
       "local_archive": ".local/downloads/wiki-6af083bb.tar.gz",
-      "local_source": ".local/upstream/wiki"
+      "local_source": ".local/upstream/wiki",
+      "file_sha256": {
+        "README.md": "12b30990ac1bf65b439718fa98f9db79e281593c2e8aa955b0871c21dc6e7062",
+        "mechanics.md": "c83a27829a7ff357e22a941e13b927d64cc057b15b97fc76b6b558bf1b1e6ad0"
+      }
     },
     "starterpack": {
       "repository_url": "https://github.com/mechmania/rust-starterpack.git",
@@ -32,6 +40,10 @@
       "archive_sha256": "fdeb22694a86ea86e9c2460bcefe89916df17dfd0fc18751c0fe55289eb8f694",
       "local_archive": ".local/downloads/rust-starterpack-f9960353.tar.gz",
       "local_source": ".local/upstream/rust-starterpack",
+      "file_sha256": {
+        "Cargo.lock": "509d2cdba699d035ae8fdbc42d3973f2751e909b2f3cb745bb32bb6ff37ba8e2",
+        "Cargo.toml": "2ebdb0e5647fb90c3b762cdaf2d7e4f55e221086af9f8c77032bdc079929ace1"
+      },
       "rust_toolchain": "nightly-2024-07-25"
     },
     "cli": {
@@ -41,6 +53,10 @@
       "archive_sha256": "3fcf97825033b37ad92049d0914e81760542f36842eb04e44dfaa71bee4fb1e3",
       "local_archive": ".local/downloads/cli-4c5bb2f3.tar.gz",
       "local_source": ".local/upstream/cli",
+      "file_sha256": {
+        "Cargo.lock": "ab1b72ff100106f995a0441b501726988dd295a4d733fbf4762c6d95162d5c97",
+        "Cargo.toml": "9406204bd556591ebdc44c424f2b00f2d0d8d28b0a0ccbde9ecab9cc8b5121d8"
+      },
       "rust_toolchain": "nightly-2024-07-25"
     }
   },
@@ -70,21 +86,21 @@
     "client_feature_affected": false,
     "reason": "The runtime adds the engine-only same-tick shot-death plus self-destruct removal fix; the client feature does not compile action.rs."
   },
-  "engine_binary": {
-    "path": "bot/.mm/bin/mm-engine",
-    "version_output": "mm-engine 0.1.0",
-    "source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
-    "source_lock_path": "bot/.mm/lock.toml",
-    "source_lock_template_path": "configs/mm-cli-lock.toml",
-    "source_lock_sha256": "6d6f835a17969086ea2228f754822989f92a20a8c7779a71ab194c9f06f540db",
-    "sha256": "a07ca18f9d277f2c0d6b191edcb1eaebb0c02a10140283564b29ac5fe5d667a4",
-    "platform": "aarch64-apple-darwin"
-  },
-  "cli_binary": {
-    "path": ".local/target/cli/release/mm-cli",
-    "version_output": "mm-cli 0.1.0",
-    "source_commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
-    "sha256": "85daf9e00bc39dd45e530759328cd90210e6f857e34737c1bb61a27eecf92953",
-    "platform": "aarch64-apple-darwin"
+  "builds": {
+    "engine": {
+      "binary_name": "mm-engine",
+      "output_path": "bot/.mm/bin/mm-engine",
+      "source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+      "source_path": ".local/upstream/engine",
+      "source_lock_path": "bot/.mm/lock.toml",
+      "source_lock_template_path": "configs/mm-cli-lock.toml",
+      "source_lock_sha256": "6d6f835a17969086ea2228f754822989f92a20a8c7779a71ab194c9f06f540db"
+    },
+    "cli": {
+      "binary_name": "mm-cli",
+      "output_path": ".local/bin/mm-cli",
+      "source_commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+      "source_path": ".local/upstream/cli"
+    }
   }
 }

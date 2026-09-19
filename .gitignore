@@ -15,6 +15,7 @@
 build/
 dist/
 coverage/
+target/
 *.log
 
 # MechMania local workspace

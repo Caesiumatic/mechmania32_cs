@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "selection": {
+    "channel": "stable",
+    "build_profile": "release"
+  },
+  "executables": {
+    "cargo": null,
+    "rustc": null,
+    "rustfmt": null,
+    "rustup": null
+  },
+  "shared_search_paths": [
+    "/opt/homebrew/opt/rustup/bin"
+  ],
+  "project_local_bin": ".local/toolchain/bin",
+  "homes": {
+    "mode": "caller_or_project_local",
+    "project_local": {
+      "cargo": ".local/cargo",
+      "rustup": ".local/rustup"
+    }
+  },
+  "official_declared_toolchain": {
+    "channel": "nightly-2024-07-25",
+    "compatibility": {
+      "status": "incompatible_with_current_locked_dependencies",
+      "reason": "The declared nightly Cargo cannot parse locked edition-2024 dependencies (including clap_lex 1.1.1); local validation uses the recorded stable toolchain while official compatibility remains a separate diagnostic."
+    }
+  },
+  "environment_overrides": [
+    "MM32_CARGO",
+    "MM32_RUSTC",
+    "MM32_RUSTFMT",
+    "MM32_RUSTUP",
+    "MM32_RUST_TOOLCHAIN",
+    "MM32_BUILD_PROFILE",
+    "CARGO_HOME",
+    "RUSTUP_HOME"
+  ]
+}

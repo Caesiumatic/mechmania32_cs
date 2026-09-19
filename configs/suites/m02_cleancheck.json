@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "round": "m02",
+  "suite_id": "m02-cleancheck",
+  "description": "One timed match used only by tracked-only cold-copy acceptance.",
+  "classification": "acceptance",
+  "fixture_path": "lab/fixtures/default_config.json",
+  "time_enforcement": true,
+  "no_time_limit": false,
+  "serial": true,
+  "parallelism": 1,
+  "match_timeout_seconds": 300,
+  "expected_matches": 1,
+  "candidates": [
+    {
+      "id": "v1",
+      "source": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy"
+      }
+    }
+  ],
+  "opponents": [
+    {
+      "id": "starter_symmetric",
+      "source": {
+        "kind": "single_file",
+        "path": "lab/opponents/starter_symmetric/main.rs"
+      }
+    }
+  ],
+  "matches": [
+    {"id": "clean-v1-starter-a", "candidate": "v1", "opponent": "starter_symmetric", "candidate_side": "a", "repetition": 1}
+  ],
+  "seed": {
+    "engine_seed_controlled": false,
+    "engine_seed": null,
+    "policy_seed": null,
+    "reason": "The pinned engine exposes no seed CLI option."
+  }
+}

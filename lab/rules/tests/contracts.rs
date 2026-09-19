@@ -319,6 +319,59 @@ fn r05_healing_rejects_self_and_respects_range_and_facing() {
     approx(outside_arc.fleets()[Team::A][target].health, 5.0);
 }
 
+fn healing_result_at(
+    conf: &GameConfig,
+    distance: f32,
+    angle_deg: f32,
+) -> (f32, StateOption<BotId>) {
+    let mut state = state_without_builds(conf);
+    let origin = Vec2::new(16.0, 16.0);
+    let healer = spawn(&mut state, conf, Team::A, origin, 0.0, BotClass::Healer);
+    let target = spawn(
+        &mut state,
+        conf,
+        Team::A,
+        origin + Vec2::from_angle_deg(angle_deg) * distance,
+        0.0,
+        BotClass::Battle,
+    );
+    state.fleets_mut()[Team::A][target].health = 5.0;
+    eval_tick(
+        &mut state,
+        conf,
+        healing(&[(healer, target)]),
+        FleetAction::new(),
+    );
+    (
+        state.fleets()[Team::A][target].health,
+        state.fleets()[Team::A][healer].healing(),
+    )
+}
+
+#[test]
+fn r05_range_boundary_includes_exactly_three_and_rejects_just_outside() {
+    let conf = isolated_config();
+    let (at_boundary, channel) = healing_result_at(&conf, 3.0, 0.0);
+    approx(at_boundary, 5.0 + conf.bot.heal_per_tick);
+    assert!(matches!(channel, StateOption::Some(_)));
+
+    let (outside, channel) = healing_result_at(&conf, 3.0 + 1.0e-3, 0.0);
+    approx(outside, 5.0);
+    assert_eq!(channel, StateOption::None);
+}
+
+#[test]
+fn r05_arc_boundary_includes_exactly_45_degrees_and_rejects_just_outside() {
+    let conf = isolated_config();
+    let (at_boundary, channel) = healing_result_at(&conf, 2.0, 45.0);
+    approx(at_boundary, 5.0 + conf.bot.heal_per_tick);
+    assert!(matches!(channel, StateOption::Some(_)));
+
+    let (outside, channel) = healing_result_at(&conf, 2.0, 45.0 + 1.0e-3);
+    approx(outside, 5.0);
+    assert_eq!(channel, StateOption::None);
+}
+
 fn health_after_stacked_heal(conf: &GameConfig, count: usize) -> f32 {
     let mut state = state_without_builds(conf);
     let target = spawn(

@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "round": "m02",
+  "suite_id": "m02-soak",
+  "description": "Controlled v1 self-play with payload speed and blaster damage set to zero to force endgame and max-tick lifecycle coverage; this is a soak/scenario, not a default-config formal comparison.",
+  "classification": "soak_scenario",
+  "fixture_path": "lab/fixtures/m02_soak_static_payload.json",
+  "engine": {
+    "kind": "fixture_build",
+    "base_source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a"
+  },
+  "time_enforcement": true,
+  "no_time_limit": false,
+  "serial": true,
+  "parallelism": 1,
+  "match_timeout_seconds": 300,
+  "expected_matches": 2,
+  "candidates": [
+    {
+      "id": "v1",
+      "source": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy"
+      }
+    }
+  ],
+  "opponents": [
+    {
+      "id": "v1_frozen_same_batch",
+      "source": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy"
+      }
+    }
+  ],
+  "matches": [
+    {"id": "soak-v1-a", "candidate": "v1", "opponent": "v1_frozen_same_batch", "candidate_side": "a", "repetition": 1},
+    {"id": "soak-v1-b", "candidate": "v1", "opponent": "v1_frozen_same_batch", "candidate_side": "b", "repetition": 1}
+  ],
+  "seed": {
+    "engine_seed_controlled": false,
+    "engine_seed": null,
+    "policy_seed": null,
+    "reason": "The pinned engine exposes no seed CLI option; the static-payload fixture controls lifecycle duration, not engine process randomness."
+  }
+}

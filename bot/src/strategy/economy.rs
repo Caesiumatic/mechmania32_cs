@@ -1,13 +1,7 @@
 use crate::core::*;
 
-/// Stable identifier for the concentrated M1 production parameters below.
-/// The structured baseline file records the SHA-256 of the complete parameter document.
-pub const PARAMETER_SET_ID: &str =
-    "sha256:51828cc65049dc403605cdb21b0314576cf3fd9fe18c4b6e9607ed9d563c9c85";
+use super::policy::{TARGET_BATTLES, TARGET_EXTRACTORS, TARGET_HEALERS};
 
-pub const TARGET_EXTRACTORS: u8 = 4;
-pub const TARGET_BATTLES: u8 = 9;
-pub const TARGET_HEALERS: u8 = 4;
 pub const OPENING_SIZE: u8 = TARGET_EXTRACTORS + TARGET_BATTLES + TARGET_HEALERS;
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]

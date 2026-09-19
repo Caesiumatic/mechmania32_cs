@@ -1,18 +1,43 @@
 use crate::core::*;
 
 use super::{
+    coordination::plan_healer_actions,
     economy::production_order,
     geometry::{finite_vec, mining_spot},
-    tactics::{battle_action, extractor_action, healer_action},
+    policy::LOW_BUDGET_THRESHOLD,
+    tactics::{battle_action, extractor_action, BattlePlanTelemetry},
     telemetry::Telemetry,
 };
 
-const LOW_BUDGET_THRESHOLD: i64 = 100_000;
+#[derive(Clone, Copy, Debug, PartialEq)]
+struct AllySnapshot {
+    class: u8,
+    health: f32,
+    pos: Vec2,
+}
+
+impl AllySnapshot {
+    fn from_bot(bot: &BotState) -> Self {
+        let class = match bot.class() {
+            BotClass::Battle => 0,
+            BotClass::Healer => 1,
+            BotClass::Extractor => 2,
+        };
+        Self {
+            class,
+            health: bot.health,
+            pos: bot.pos,
+        }
+    }
+}
 
 pub struct Controller {
     last_tick: Option<u32>,
     payload_controller: Option<BotId>,
     cached_targets: [Option<BotId>; BOTS_MAX],
+    cached_heal_targets: [Option<BotId>; BOTS_MAX],
+    cached_support_targets: [Option<BotId>; BOTS_MAX],
+    ally_snapshots: [Option<AllySnapshot>; BOTS_MAX],
     telemetry: Telemetry,
 }
 
@@ -22,14 +47,18 @@ impl Controller {
             last_tick: None,
             payload_controller: None,
             cached_targets: [None; BOTS_MAX],
+            cached_heal_targets: [None; BOTS_MAX],
+            cached_support_targets: [None; BOTS_MAX],
+            ally_snapshots: [None; BOTS_MAX],
             telemetry: Telemetry::new(team_slot),
         }
     }
 
     pub fn decide(&mut self, state: &GameState, conf: &GameConfig, budget: Budget) -> FleetAction {
         if self.last_tick.is_some_and(|tick| state.tick > tick + 1) {
-            self.cached_targets.fill(None);
+            self.clear_assignment_caches();
         }
+        self.refresh_ally_lifetimes(state, conf);
         self.last_tick = Some(state.tick);
 
         let low_budget = budget.remaining < LOW_BUDGET_THRESHOLD;
@@ -41,33 +70,36 @@ impl Controller {
         fleet_action.rush_order = rush_order;
 
         self.refresh_payload_controller(state);
-        let mut reserved_enemies = [false; BOTS_MAX];
-        let mut heal_assignments = [0u8; BOTS_MAX];
+        let mut covered_enemies = 0u32;
         let mut extractor_ordinal = 0usize;
+        let mut battle_telemetry = [BattlePlanTelemetry::default(); BOTS_MAX];
 
         for bot in state.fleet_me.iter() {
             let action = match bot.class() {
                 BotClass::Battle => {
-                    let target = self.select_enemy(bot, state, low_budget, &reserved_enemies);
+                    let target = self.select_enemy(bot, state, low_budget, covered_enemies);
                     let controls_payload = self.payload_controller == Some(bot.id);
-                    let (action, fires) = battle_action(bot, target, state, conf, controls_payload);
+                    let (action, newly_covered, plan_telemetry) = battle_action(
+                        bot,
+                        target,
+                        state,
+                        conf,
+                        controls_payload,
+                        covered_enemies,
+                        low_budget,
+                    );
+                    battle_telemetry[bot.id as usize] = plan_telemetry;
                     if let Some(enemy) = target {
                         self.cached_targets[bot.id as usize] = Some(enemy.id);
-                        if fires {
-                            reserved_enemies[enemy.id as usize] = true;
-                        }
                     } else {
                         self.cached_targets[bot.id as usize] = None;
                     }
+                    covered_enemies |= newly_covered;
                     action
                 }
-                BotClass::Healer => {
-                    let target = select_heal_target(bot, state, conf, &heal_assignments);
-                    if let Some(ally) = target {
-                        heal_assignments[ally.id as usize] += 1;
-                    }
-                    healer_action(bot, target, conf)
-                }
+                // Healer movement and channels are assigned together only after all other
+                // classes have proposed movement, so every candidate sees one team snapshot.
+                BotClass::Healer => continue,
                 BotClass::Extractor => {
                     let (deposit, pos) = select_deposit(state, conf, bot.id, extractor_ordinal);
                     extractor_ordinal += 1;
@@ -79,8 +111,79 @@ impl Controller {
             fleet_action.bots[bot.id as usize] = action;
         }
 
-        self.telemetry.observe_action(&fleet_action);
+        let heal_stats = plan_healer_actions(
+            state,
+            conf,
+            &mut fleet_action,
+            &mut self.cached_heal_targets,
+            &mut self.cached_support_targets,
+        );
+        for bot in state.fleet_me.iter() {
+            let action = &fleet_action.bots[bot.id as usize];
+            debug_assert!(finite_vec(action.move_action.direction));
+            debug_assert_eq!(action.special_action.class(), bot.class());
+        }
+
+        self.telemetry.observe_action(
+            state,
+            conf,
+            &fleet_action,
+            heal_stats,
+            &battle_telemetry,
+            &self.cached_support_targets,
+        );
         fleet_action
+    }
+
+    fn clear_assignment_caches(&mut self) {
+        self.cached_targets.fill(None);
+        self.cached_heal_targets.fill(None);
+        self.cached_support_targets.fill(None);
+    }
+
+    fn invalidate_ally_slot(&mut self, id: BotId) {
+        for cache in [
+            &mut self.cached_heal_targets,
+            &mut self.cached_support_targets,
+        ] {
+            cache[id as usize] = None;
+            for target in cache.iter_mut() {
+                if *target == Some(id) {
+                    *target = None;
+                }
+            }
+        }
+    }
+
+    fn refresh_ally_lifetimes(&mut self, state: &GameState, conf: &GameConfig) {
+        let elapsed = self
+            .last_tick
+            .map(|tick| state.tick.saturating_sub(tick).max(1))
+            .unwrap_or(1) as f32;
+        let max_health_gain = conf.bot.heal_per_tick * conf.bot.heal_stack_cap * elapsed + 1e-4;
+        // Collisions can add displacement beyond commanded speed. This bound is deliberately
+        // generous, while still detecting the spawn-corner jump of a reused slot.
+        let max_displacement = conf.bot.speed * elapsed + conf.bot.radius * 4.0 + 1e-4;
+
+        for index in 0..BOTS_MAX {
+            let current = state
+                .fleet_me
+                .get(index as BotId)
+                .map(AllySnapshot::from_bot);
+            let changed_lifetime = match (self.ally_snapshots[index], current) {
+                (None, None) => false,
+                (None, Some(_)) | (Some(_), None) => true,
+                (Some(old), Some(new)) => {
+                    old.class != new.class
+                        || new.health > old.health + max_health_gain
+                        || old.pos.dist(&new.pos) > max_displacement
+                }
+            };
+            if changed_lifetime {
+                self.invalidate_ally_slot(index as BotId);
+            }
+            self.ally_snapshots[index] = current;
+        }
     }
 
     fn refresh_payload_controller(&mut self, state: &GameState) {
@@ -104,12 +207,12 @@ impl Controller {
         bot: &BotState,
         state: &'a GameState,
         low_budget: bool,
-        reserved: &[bool; BOTS_MAX],
+        covered: u32,
     ) -> Option<&'a BotState> {
         if low_budget {
             if let Some(cached) = self.cached_targets[bot.id as usize]
                 .and_then(|id| state.fleet_other.get(id))
-                .filter(|enemy| !reserved[enemy.id as usize])
+                .filter(|enemy| covered & (1u32 << enemy.id) == 0)
             {
                 return Some(cached);
             }
@@ -118,7 +221,7 @@ impl Controller {
         state
             .fleet_other
             .iter()
-            .filter(|enemy| !reserved[enemy.id as usize])
+            .filter(|enemy| covered & (1u32 << enemy.id) == 0)
             .min_by(|a, b| bot.pos.dist_sq(&a.pos).total_cmp(&bot.pos.dist_sq(&b.pos)))
             .or_else(|| {
                 state
@@ -127,28 +230,6 @@ impl Controller {
                     .min_by(|a, b| bot.pos.dist_sq(&a.pos).total_cmp(&bot.pos.dist_sq(&b.pos)))
             })
     }
-}
-
-fn select_heal_target<'a>(
-    healer: &BotState,
-    state: &'a GameState,
-    conf: &GameConfig,
-    assignments: &[u8; BOTS_MAX],
-) -> Option<&'a BotState> {
-    let cap = conf.bot.heal_stack_cap.max(1.0).floor() as u8;
-    state
-        .fleet_me
-        .iter()
-        .filter(|ally| {
-            ally.id != healer.id
-                && ally.health + 1e-6 < conf.bot.health
-                && assignments[ally.id as usize] < cap
-        })
-        .min_by(|a, b| {
-            let score =
-                |ally: &BotState| ally.health / conf.bot.health + healer.pos.dist(&ally.pos) * 0.01;
-            score(a).total_cmp(&score(b))
-        })
 }
 
 fn select_deposit(state: &GameState, conf: &GameConfig, id: BotId, ordinal: usize) -> (Vec2, Vec2) {
@@ -269,5 +350,97 @@ mod tests {
         assert_eq!(a.last_tick, b.last_tick);
         assert_eq!(a.payload_controller, b.payload_controller);
         assert_eq!(a.cached_targets, b.cached_targets);
+        assert_eq!(a.cached_heal_targets, b.cached_heal_targets);
+        assert_eq!(a.cached_support_targets, b.cached_support_targets);
+        assert_eq!(a.ally_snapshots, b.ally_snapshots);
+    }
+
+    fn spawn(
+        state: &mut GameState,
+        conf: &GameConfig,
+        class: BotClass,
+        pos: Vec2,
+        health: f32,
+    ) -> BotId {
+        let id = state.fleet_me.add();
+        let bot = &mut state.fleet_me[id];
+        bot.id = id;
+        bot.health = health.min(conf.bot.health);
+        bot.pos = pos;
+        bot.vel = Vec2::ZERO;
+        bot.angle = 0.0;
+        bot.turn_vel = 0.0;
+        bot.invulnerable_until_tick = 0;
+        bot.special = SpecialState::new(class);
+        id
+    }
+
+    #[test]
+    fn d09_death_slot_reuse_and_tick_jump_drop_stale_coordination_cache() {
+        let conf = config();
+        init_topology(&conf.map, conf.bot.radius);
+        let mut state = GameState::new(&conf);
+        let healer = spawn(
+            &mut state,
+            &conf,
+            BotClass::Healer,
+            Vec2::new(10.0, 10.0),
+            conf.bot.health,
+        );
+        let wounded = spawn(
+            &mut state,
+            &conf,
+            BotClass::Battle,
+            Vec2::new(12.0, 10.0),
+            9.0,
+        );
+        let mut controller = Controller::new(0);
+        let budget = Budget {
+            remaining: Budget::BANK,
+            last_charge: 0,
+        };
+
+        let first = controller.decide(&state, &conf, budget);
+        assert_eq!(
+            controller.cached_heal_targets[healer as usize],
+            Some(wounded)
+        );
+        assert_eq!(
+            controller.cached_support_targets[healer as usize],
+            Some(wounded)
+        );
+        assert!(matches!(
+            first.bots[healer as usize].special_action,
+            SpecialAction::Healer {
+                fire: true,
+                target
+            } if target == wounded
+        ));
+
+        state.fleet_me.remove(wounded);
+        state.tick += 1;
+        controller.decide(&state, &conf, budget);
+        assert_eq!(controller.cached_heal_targets[healer as usize], None);
+        assert_eq!(controller.cached_support_targets[healer as usize], None);
+
+        let reused = spawn(
+            &mut state,
+            &conf,
+            BotClass::Extractor,
+            Vec2::new(22.0, 29.0),
+            conf.bot.health,
+        );
+        assert_eq!(reused, wounded, "BotArray must reuse the first free slot");
+        controller.cached_heal_targets[healer as usize] = Some(reused);
+        controller.cached_support_targets[healer as usize] = Some(reused);
+        state.tick += 2;
+        let after_jump = controller.decide(&state, &conf, budget);
+        assert_eq!(controller.cached_heal_targets[healer as usize], None);
+        // With no battle unit, the valid non-healer fallback may deliberately become the
+        // new support anchor; the stale heal binding must not become a channel.
+        assert!(matches!(
+            after_jump.bots[healer as usize].special_action,
+            SpecialAction::Healer { fire: false, .. }
+        ));
     }
 }

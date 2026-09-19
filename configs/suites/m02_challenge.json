@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "round": "m02",
+  "suite_id": "m02-challenge",
+  "description": "Historical m01_v0 and current v1 against the frozen three-opponent challenge pool.",
+  "classification": "formal",
+  "fixture_path": "lab/fixtures/default_config.json",
+  "time_enforcement": true,
+  "no_time_limit": false,
+  "serial": true,
+  "parallelism": 1,
+  "match_timeout_seconds": 300,
+  "expected_matches": 24,
+  "candidates": [
+    {
+      "id": "m01_v0",
+      "source": {
+        "kind": "git_strategy_tree",
+        "commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+        "path": "bot/src/strategy"
+      }
+    },
+    {
+      "id": "v1",
+      "source": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy"
+      }
+    }
+  ],
+  "opponents": [
+    {
+      "id": "m01_v0",
+      "source": {
+        "kind": "git_strategy_tree",
+        "commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+        "path": "bot/src/strategy"
+      }
+    },
+    {
+      "id": "support_screen",
+      "source": {
+        "kind": "single_file",
+        "path": "lab/opponents/support_screen/main.rs"
+      }
+    },
+    {
+      "id": "strafe_pressure",
+      "source": {
+        "kind": "single_file",
+        "path": "lab/opponents/strafe_pressure/main.rs"
+      }
+    }
+  ],
+  "matches": [
+    {"id": "v0-v0-a-r1", "candidate": "m01_v0", "opponent": "m01_v0", "candidate_side": "a", "repetition": 1},
+    {"id": "v0-v0-b-r1", "candidate": "m01_v0", "opponent": "m01_v0", "candidate_side": "b", "repetition": 1},
+    {"id": "v0-v0-a-r2", "candidate": "m01_v0", "opponent": "m01_v0", "candidate_side": "a", "repetition": 2},
+    {"id": "v0-v0-b-r2", "candidate": "m01_v0", "opponent": "m01_v0", "candidate_side": "b", "repetition": 2},
+    {"id": "v0-support-a-r1", "candidate": "m01_v0", "opponent": "support_screen", "candidate_side": "a", "repetition": 1},
+    {"id": "v0-support-b-r1", "candidate": "m01_v0", "opponent": "support_screen", "candidate_side": "b", "repetition": 1},
+    {"id": "v0-support-a-r2", "candidate": "m01_v0", "opponent": "support_screen", "candidate_side": "a", "repetition": 2},
+    {"id": "v0-support-b-r2", "candidate": "m01_v0", "opponent": "support_screen", "candidate_side": "b", "repetition": 2},
+    {"id": "v0-strafe-a-r1", "candidate": "m01_v0", "opponent": "strafe_pressure", "candidate_side": "a", "repetition": 1},
+    {"id": "v0-strafe-b-r1", "candidate": "m01_v0", "opponent": "strafe_pressure", "candidate_side": "b", "repetition": 1},
+    {"id": "v0-strafe-a-r2", "candidate": "m01_v0", "opponent": "strafe_pressure", "candidate_side": "a", "repetition": 2},
+    {"id": "v0-strafe-b-r2", "candidate": "m01_v0", "opponent": "strafe_pressure", "candidate_side": "b", "repetition": 2},
+    {"id": "v1-v0-a-r1", "candidate": "v1", "opponent": "m01_v0", "candidate_side": "a", "repetition": 1},
+    {"id": "v1-v0-b-r1", "candidate": "v1", "opponent": "m01_v0", "candidate_side": "b", "repetition": 1},
+    {"id": "v1-v0-a-r2", "candidate": "v1", "opponent": "m01_v0", "candidate_side": "a", "repetition": 2},
+    {"id": "v1-v0-b-r2", "candidate": "v1", "opponent": "m01_v0", "candidate_side": "b", "repetition": 2},
+    {"id": "v1-support-a-r1", "candidate": "v1", "opponent": "support_screen", "candidate_side": "a", "repetition": 1},
+    {"id": "v1-support-b-r1", "candidate": "v1", "opponent": "support_screen", "candidate_side": "b", "repetition": 1},
+    {"id": "v1-support-a-r2", "candidate": "v1", "opponent": "support_screen", "candidate_side": "a", "repetition": 2},
+    {"id": "v1-support-b-r2", "candidate": "v1", "opponent": "support_screen", "candidate_side": "b", "repetition": 2},
+    {"id": "v1-strafe-a-r1", "candidate": "v1", "opponent": "strafe_pressure", "candidate_side": "a", "repetition": 1},
+    {"id": "v1-strafe-b-r1", "candidate": "v1", "opponent": "strafe_pressure", "candidate_side": "b", "repetition": 1},
+    {"id": "v1-strafe-a-r2", "candidate": "v1", "opponent": "strafe_pressure", "candidate_side": "a", "repetition": 2},
+    {"id": "v1-strafe-b-r2", "candidate": "v1", "opponent": "strafe_pressure", "candidate_side": "b", "repetition": 2}
+  ],
+  "seed": {
+    "engine_seed_controlled": false,
+    "engine_seed": null,
+    "policy_seed": null,
+    "reason": "The pinned engine exposes no seed CLI option; repetitions use process randomness."
+  }
+}
