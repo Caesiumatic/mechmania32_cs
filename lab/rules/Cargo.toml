@@ -1,0 +1,11 @@
+[package]
+name = "mm32-rules-contracts"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+mm-engine = { git = "https://github.com/mechmania/engine.git", rev = "4cbd3467e6617e330d42cb78ae3327ab2c88926a", default-features = false, features = ["engine"] }
+
+[dev-dependencies]
+serde_json = "1.0"

@@ -16,3 +16,8 @@ build/
 dist/
 coverage/
 *.log
+
+# MechMania local workspace
+.local/
+__pycache__/
+*.pyc

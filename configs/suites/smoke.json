@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "version": "m01-v1",
+  "source": {
+    "upstream_lock_path": "configs/upstream.lock.json",
+    "baseline_path": "configs/baseline.json"
+  },
+  "suite_id": "m01-smoke",
+  "description": "Formal timed smoke matrix: two opponents, both candidate sides, two repetitions.",
+  "time_enforcement": true,
+  "no_time_limit": false,
+  "serial": true,
+  "parallelism": 1,
+  "match_timeout_seconds": 300,
+  "expected_matches": 8,
+  "candidate": {
+    "id": "v0",
+    "project_dir": "bot",
+    "strategy_config_path": "configs/baseline.json"
+  },
+  "opponents": [
+    {
+      "id": "starter_symmetric",
+      "source_path": "lab/opponents/starter_symmetric/main.rs",
+      "build_dir": ".local/opponents/starter_symmetric",
+      "source": {
+        "kind": "derived_upstream_strategy",
+        "repository_url": "https://github.com/mechmania/rust-starterpack.git",
+        "commit": "f9960353f414938002ea2bb18161b6851a71c40c",
+        "path": "src/strategy/main.rs",
+        "transform": "Use the upstream basic strategy for both mirrored team entry points."
+      }
+    },
+    {
+      "id": "rush_simple",
+      "source_path": "lab/opponents/rush_simple/main.rs",
+      "build_dir": ".local/opponents/rush_simple",
+      "source": {
+        "kind": "project_opponent",
+        "definition": "Low-economy battle rush that pressures the payload."
+      }
+    }
+  ],
+  "matches": [
+    {
+      "id": "starter-symmetric-candidate-a-r1",
+      "opponent": "starter_symmetric",
+      "candidate_side": "a",
+      "repetition": 1
+    },
+    {
+      "id": "starter-symmetric-candidate-b-r1",
+      "opponent": "starter_symmetric",
+      "candidate_side": "b",
+      "repetition": 1
+    },
+    {
+      "id": "starter-symmetric-candidate-a-r2",
+      "opponent": "starter_symmetric",
+      "candidate_side": "a",
+      "repetition": 2
+    },
+    {
+      "id": "starter-symmetric-candidate-b-r2",
+      "opponent": "starter_symmetric",
+      "candidate_side": "b",
+      "repetition": 2
+    },
+    {
+      "id": "rush-simple-candidate-a-r1",
+      "opponent": "rush_simple",
+      "candidate_side": "a",
+      "repetition": 1
+    },
+    {
+      "id": "rush-simple-candidate-b-r1",
+      "opponent": "rush_simple",
+      "candidate_side": "b",
+      "repetition": 1
+    },
+    {
+      "id": "rush-simple-candidate-a-r2",
+      "opponent": "rush_simple",
+      "candidate_side": "a",
+      "repetition": 2
+    },
+    {
+      "id": "rush-simple-candidate-b-r2",
+      "opponent": "rush_simple",
+      "candidate_side": "b",
+      "repetition": 2
+    }
+  ],
+  "self_play_matches": [],
+  "seed": {
+    "engine_seed_controlled": false,
+    "engine_seed": null,
+    "policy_seed": null,
+    "reason": "The audited engine exposes no seed CLI option; repetitions use process randomness."
+  },
+  "scoring": {
+    "win": 3,
+    "draw": 1,
+    "loss": 0
+  },
+  "artifacts": {
+    "run_root": ".local/runs/m01-smoke",
+    "summary_root": "artifacts/summaries/m01"
+  }
+}

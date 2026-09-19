@@ -1,0 +1,11 @@
+generated_by = "f02be38adce7fcf8e7dd5b5f8623c147bb8c449d"
+
+[sources.engine]
+repo_url = "https://github.com/mechmania/engine"
+rev = "4cbd3467e6617e330d42cb78ae3327ab2c88926a"
+last_checked = "2026-09-19T03:01:35.914108Z"
+
+[sources.starterpack]
+repo_url = "https://github.com/mechmania/rust-starterpack"
+rev = "f9960353f414938002ea2bb18161b6851a71c40c"
+last_checked = "2026-09-19T03:01:18.442778Z"

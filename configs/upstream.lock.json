@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "version": "m01-v1",
+  "source": {
+    "kind": "audited_upstream_snapshot",
+    "repository": "Caesiumatic/mechmania32_cs",
+    "base_commit": "f02be38adce7fcf8e7dd5b5f8623c147bb8c449d",
+    "audit_date": "2026-09-18"
+  },
+  "sources": {
+    "engine": {
+      "repository_url": "https://github.com/mechmania/engine.git",
+      "archive_url": "https://github.com/mechmania/engine/archive/4cbd3467e6617e330d42cb78ae3327ab2c88926a.tar.gz",
+      "commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+      "archive_sha256": "7940b76b9365bf36501c23462ed1334ca43df8e05821f33f58160bd56f2332d7",
+      "local_archive": ".local/downloads/engine-4cbd3467.tar.gz",
+      "local_source": ".local/upstream/engine",
+      "rust_toolchain": "nightly-2024-07-25"
+    },
+    "wiki": {
+      "repository_url": "https://github.com/mechmania/wiki.git",
+      "archive_url": "https://github.com/mechmania/wiki/archive/6af083bb4c28a4e18d2f7fcdda5a380aebc0545f.tar.gz",
+      "commit": "6af083bb4c28a4e18d2f7fcdda5a380aebc0545f",
+      "archive_sha256": "0e1260aee9951d2398bbfb8d3e0a3757d50b3570e8d5c40ea239b0af2972bc23",
+      "local_archive": ".local/downloads/wiki-6af083bb.tar.gz",
+      "local_source": ".local/upstream/wiki"
+    },
+    "starterpack": {
+      "repository_url": "https://github.com/mechmania/rust-starterpack.git",
+      "archive_url": "https://github.com/mechmania/rust-starterpack/archive/f9960353f414938002ea2bb18161b6851a71c40c.tar.gz",
+      "commit": "f9960353f414938002ea2bb18161b6851a71c40c",
+      "archive_sha256": "fdeb22694a86ea86e9c2460bcefe89916df17dfd0fc18751c0fe55289eb8f694",
+      "local_archive": ".local/downloads/rust-starterpack-f9960353.tar.gz",
+      "local_source": ".local/upstream/rust-starterpack",
+      "rust_toolchain": "nightly-2024-07-25"
+    },
+    "cli": {
+      "repository_url": "https://github.com/mechmania/cli.git",
+      "archive_url": "https://github.com/mechmania/cli/archive/4c5bb2f33d7fdee10e9d8f311f382ff198b81214.tar.gz",
+      "commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+      "archive_sha256": "3fcf97825033b37ad92049d0914e81760542f36842eb04e44dfaa71bee4fb1e3",
+      "local_archive": ".local/downloads/cli-4c5bb2f3.tar.gz",
+      "local_source": ".local/upstream/cli",
+      "rust_toolchain": "nightly-2024-07-25"
+    }
+  },
+  "bot_dependency": {
+    "crate": "mm-engine",
+    "manifest_path": "bot/Cargo.toml",
+    "manifest_sha256": "2ebdb0e5647fb90c3b762cdaf2d7e4f55e221086af9f8c77032bdc079929ace1",
+    "lockfile_path": "bot/Cargo.lock",
+    "lockfile_sha256": "509d2cdba699d035ae8fdbc42d3973f2751e909b2f3cb745bb32bb6ff37ba8e2",
+    "repository_url": "https://github.com/mechmania/engine.git",
+    "requested_rev": null,
+    "locked_rev": "879578d448251d0acc7f10eef3d7fe5450758096",
+    "default_features": false,
+    "features": [
+      "client"
+    ]
+  },
+  "client_runtime_compatibility": {
+    "status": "accepted",
+    "client_commit": "879578d448251d0acc7f10eef3d7fe5450758096",
+    "runtime_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+    "compare_url": "https://github.com/mechmania/engine/compare/879578d448251d0acc7f10eef3d7fe5450758096...4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+    "runtime_commits_ahead": 1,
+    "changed_paths": [
+      "src/game/action.rs"
+    ],
+    "client_feature_affected": false,
+    "reason": "The runtime adds the engine-only same-tick shot-death plus self-destruct removal fix; the client feature does not compile action.rs."
+  },
+  "engine_binary": {
+    "path": "bot/.mm/bin/mm-engine",
+    "version_output": "mm-engine 0.1.0",
+    "source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+    "source_lock_path": "bot/.mm/lock.toml",
+    "source_lock_template_path": "configs/mm-cli-lock.toml",
+    "source_lock_sha256": "6d6f835a17969086ea2228f754822989f92a20a8c7779a71ab194c9f06f540db",
+    "sha256": "a07ca18f9d277f2c0d6b191edcb1eaebb0c02a10140283564b29ac5fe5d667a4",
+    "platform": "aarch64-apple-darwin"
+  },
+  "cli_binary": {
+    "path": ".local/target/cli/release/mm-cli",
+    "version_output": "mm-cli 0.1.0",
+    "source_commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+    "sha256": "85daf9e00bc39dd45e530759328cd90210e6f857e34737c1bb61a27eecf92953",
+    "platform": "aarch64-apple-darwin"
+  }
+}
