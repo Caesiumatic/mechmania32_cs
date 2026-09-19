@@ -1,0 +1,743 @@
+{
+  "cleancheck_artifact_check": {
+    "current": true,
+    "examined_runs": [
+      {
+        "command_labels": [
+          "bootstrap_first",
+          "test",
+          "timed_match",
+          "packcheck",
+          "bootstrap_second"
+        ],
+        "current": false,
+        "generated_at": "2026-09-19T05:42:40.359173Z",
+        "manifest": {
+          "bytes": 16833,
+          "path": "artifacts/summaries/m02/cleancheck/clean-4e66145/manifest.json",
+          "sha256": "b39b6c45a5a3db288ca4ade8723ebe1aa825d90c2b48c84a1acb0517c35a52fb"
+        },
+        "run_id": "clean-4e66145",
+        "toolchain_matches": true
+      },
+      {
+        "command_labels": [
+          "bootstrap_first",
+          "test",
+          "timed_match",
+          "packcheck",
+          "bootstrap_second"
+        ],
+        "current": true,
+        "generated_at": "2026-09-19T05:50:20.780296Z",
+        "manifest": {
+          "bytes": 16833,
+          "path": "artifacts/summaries/m02/cleancheck/clean-761c8f8/manifest.json",
+          "sha256": "06ac3c1945a8b80278d850e6c604e97abeb8bb391e924c4f9f8095f960eca56a"
+        },
+        "run_id": "clean-761c8f8",
+        "toolchain_matches": true
+      }
+    ],
+    "latest_record_matches": true,
+    "selected": {
+      "command_labels": [
+        "bootstrap_first",
+        "test",
+        "timed_match",
+        "packcheck",
+        "bootstrap_second"
+      ],
+      "current": true,
+      "generated_at": "2026-09-19T05:50:20.780296Z",
+      "manifest": {
+        "bytes": 16833,
+        "path": "artifacts/summaries/m02/cleancheck/clean-761c8f8/manifest.json",
+        "sha256": "06ac3c1945a8b80278d850e6c604e97abeb8bb391e924c4f9f8095f960eca56a"
+      },
+      "run_id": "clean-761c8f8",
+      "toolchain_matches": true
+    }
+  },
+  "evaluated_code_commit": "761c8f80b01fbbf5d50cd2e4b4b719d269e7ea08",
+  "evidence_checks": {
+    "all_required_suite_artifacts_current": true,
+    "bootstrap_preserved_current_strategy": true,
+    "cleancheck_current": true,
+    "m01_history_unchanged": true,
+    "m01_no_untracked_additions": true,
+    "manifest_current": true,
+    "metrics_current": true,
+    "packcheck_current": true,
+    "smoke_current": true,
+    "test_current": true
+  },
+  "failures": [],
+  "formal_submission": "not_run_requires_shi_authorization",
+  "generated_at": "2026-09-19T15:14:55.320129Z",
+  "generated_paths_ignored": {
+    ".local/bin/mm-cli": true,
+    ".local/records/builds/engine.json": true,
+    "bot/.mm/bin/mm-engine": true,
+    "bot/Cargo.lock": true,
+    "bot/Cargo.toml": true,
+    "bot/src/core.rs": true
+  },
+  "git_diff_check": {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": ".",
+    "duration_seconds": 0.007377,
+    "exit_code": 0,
+    "timed_out": false
+  },
+  "inputs": {
+    "digest": "415afd76f6f9f3d2e28982cbcf904f2b4f61548bd6e7e4da9570733f5b14e6d9",
+    "fixture": {
+      "path": "lab/fixtures/default_config.json",
+      "sha256": "ab2839fc9e2fa4214e694225120f3c7112ee587831f1bcb58cc6602bdf33dfc0"
+    },
+    "opponents_test_tree": "6e11535af4f9f5e90811a0e1b5e393507c1dd50f1895452752aef7fda3e89371",
+    "round": "m02",
+    "rules_tree": "107fa2c676d882e457f3dbe3cfee22fcd426b09827680b2c06e35076736c8526",
+    "strategy_sources": {
+      "candidate:m01_v0": {
+        "git_tree_oid": "233a69435e0d2dd0863959ea4114a341140ffbdd",
+        "kind": "git_strategy_tree",
+        "path": "bot/src/strategy",
+        "requested_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+        "resolved_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f"
+      },
+      "candidate:v1": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy",
+        "sha256": "234dc827ea6373cb1ee11f48cb0761f399102c7eb3c5bb1bcd4e98dd7c81ddc6"
+      },
+      "opponent:m01_v0": {
+        "git_tree_oid": "233a69435e0d2dd0863959ea4114a341140ffbdd",
+        "kind": "git_strategy_tree",
+        "path": "bot/src/strategy",
+        "requested_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+        "resolved_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f"
+      },
+      "opponent:strafe_pressure": {
+        "kind": "single_file",
+        "path": "lab/opponents/strafe_pressure/main.rs",
+        "sha256": "b0cbf5aa6c91eee77621236a198cefb8253f43f627efc0cd820c529d952fa335"
+      },
+      "opponent:support_screen": {
+        "kind": "single_file",
+        "path": "lab/opponents/support_screen/main.rs",
+        "sha256": "8ac50b7b5284996bb191177f76d89daadac9fbdf23dded5a639eb027e42cbba6"
+      }
+    },
+    "suite": {
+      "path": "configs/suites/m02_challenge.json",
+      "sha256": "f6c307b49e33a2c7de693b6bc3eca12b4fc613d41d3819428a928f57a34d3dd0"
+    },
+    "toolchain_lock": "a9b5264a3ece0ef1056c607f66001a8736eeb60d34580b7c8d72e0a022724578",
+    "toolchain_selection": {
+      "build_profile": "release",
+      "cargo": {
+        "exit_code": 0,
+        "output": "cargo 1.98.1 (797e8a9bc 2026-08-05)\nrelease: 1.98.1\ncommit-hash: 797e8a9bca276c1c9f9f738d2a20f484fa4eea9d\ncommit-date: 2026-08-05\nhost: aarch64-apple-darwin\nlibgit2: 1.9.4 (sys:0.21.0 vendored)\nlibcurl: 8.7.1 (sys:0.4.90+curl-8.21.0 system ssl:(SecureTransport) LibreSSL/3.3.6)\nssl: OpenSSL 3.6.3 9 Jun 2026\nos: Mac OS 26.3.1 [64-bit]"
+      },
+      "cargo_home_scope": "project_local",
+      "cargo_home_source": "toolchain_lock_project_local",
+      "channel": "stable",
+      "environment_overrides": {},
+      "executables": {
+        "cargo": "/opt/homebrew/opt/rustup/bin/cargo",
+        "rustc": "/opt/homebrew/opt/rustup/bin/rustc",
+        "rustfmt": "/opt/homebrew/opt/rustup/bin/rustfmt",
+        "rustup": "/opt/homebrew/bin/rustup"
+      },
+      "fingerprint": "c0199d6128ca2eed3c839a40d00e93a4fdb9615bd24ff59881f12c4a66f64444",
+      "rustc": {
+        "exit_code": 0,
+        "output": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: aarch64-apple-darwin\nrelease: 1.98.1\nLLVM version: 22.1.8"
+      },
+      "rustup_home_scope": "project_local",
+      "rustup_home_source": "toolchain_lock_project_local",
+      "target_triple": "aarch64-apple-darwin"
+    },
+    "upstream_lock": "f403cccfd216e1061850f158f8f9306c0de263738a1bda1c45ae35d1bd14c440",
+    "upstream_source_trees": {
+      "cli": {
+        "path": ".local/upstream/cli",
+        "sha256": "b13f40ed97c831e812c9bfa4ec5c5417e37ecc467b4cfa3ba3b380efaee255de"
+      },
+      "engine": {
+        "path": ".local/upstream/engine",
+        "sha256": "ec25201d3c0aba8d5d6004bc17715370a41f4db3a55be1589f52925999c10879"
+      },
+      "starterpack": {
+        "path": ".local/upstream/rust-starterpack",
+        "sha256": "7e37ee548768e43535a38ef7d7b2e3b508a2cf7fc8671891c139c38808201bf7"
+      },
+      "wiki": {
+        "path": ".local/upstream/wiki",
+        "sha256": "3462010b4c6e315d7b32a7c115d222a1ccc661762b749f7a17789c9c4a25e20c"
+      }
+    },
+    "workflow_tests": "aad987d3484eb4208e44d97cd7248e68ce047dd55ee259820b37e0806634c5c8",
+    "workflow_tool": "c7671cd4bab8d65b09c2edc700f1c43050cd2cc72e57d4a388687e82a838dd12"
+  },
+  "large_files": [],
+  "latest_artifact_root": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8",
+  "local_build_record_checks": {
+    "cli_binary": true,
+    "cli_command": true,
+    "cli_component": true,
+    "cli_record_present": true,
+    "cli_source_commit": true,
+    "cli_source_fingerprint": true,
+    "cli_status": true,
+    "cli_target_triple": true,
+    "cli_toolchain": true,
+    "engine_binary": true,
+    "engine_command": true,
+    "engine_component": true,
+    "engine_record_present": true,
+    "engine_source_commit": true,
+    "engine_source_fingerprint": true,
+    "engine_status": true,
+    "engine_target_triple": true,
+    "engine_toolchain": true
+  },
+  "m01_history_check": {
+    "argv": [
+      "git",
+      "diff",
+      "--quiet",
+      "e789961d7dedb00f70b1947dfd1435bc68a65cfe",
+      "--",
+      "artifacts/summaries/m01",
+      "docs/reports/mechmania32_report1.md",
+      "docs/rules/mechmania32_rules1.md",
+      "docs/mechmania32_index1.md"
+    ],
+    "cwd": ".",
+    "duration_seconds": 0.008957,
+    "exit_code": 0,
+    "timed_out": false
+  },
+  "m01_untracked_check": {
+    "argv": [
+      "git",
+      "ls-files",
+      "--others",
+      "--exclude-standard",
+      "--",
+      "artifacts/summaries/m01",
+      "docs/reports/mechmania32_report1.md",
+      "docs/rules/mechmania32_rules1.md",
+      "docs/mechmania32_index1.md"
+    ],
+    "cwd": ".",
+    "duration_seconds": 0.009118,
+    "exit_code": 0,
+    "paths": [],
+    "timed_out": false
+  },
+  "repository": {
+    "branch": "main",
+    "head": "761c8f80b01fbbf5d50cd2e4b4b719d269e7ea08",
+    "remote_origin": "https://github.com/Caesiumatic/mechmania32_cs.git",
+    "status_porcelain": [
+      "M  artifacts/feedback/latest.json",
+      "A  artifacts/summaries/m02/audit.json",
+      "A  artifacts/summaries/m02/cleancheck/clean-4e66145/manifest.json",
+      "A  artifacts/summaries/m02/cleancheck/clean-761c8f8/manifest.json",
+      "A  artifacts/summaries/m02/m02-challenge/challenge-4e66145/manifest.json",
+      "A  artifacts/summaries/m02/m02-challenge/challenge-4e66145/metrics.json",
+      "A  artifacts/summaries/m02/m02-challenge/challenge-761c8f8/audit.json",
+      "A  artifacts/summaries/m02/m02-challenge/challenge-761c8f8/manifest.json",
+      "A  artifacts/summaries/m02/m02-challenge/challenge-761c8f8/metrics.json",
+      "A  artifacts/summaries/m02/m02-regression/regression-4e66145/manifest.json",
+      "A  artifacts/summaries/m02/m02-regression/regression-4e66145/metrics.json",
+      "A  artifacts/summaries/m02/m02-regression/regression-761c8f8/manifest.json",
+      "A  artifacts/summaries/m02/m02-regression/regression-761c8f8/metrics.json",
+      "A  artifacts/summaries/m02/m02-soak/soak-4e66145/manifest.json",
+      "A  artifacts/summaries/m02/m02-soak/soak-4e66145/metrics.json",
+      "A  artifacts/summaries/m02/m02-soak/soak-761c8f8/manifest.json",
+      "A  artifacts/summaries/m02/m02-soak/soak-761c8f8/metrics.json",
+      "A  artifacts/summaries/m02/manifest.json",
+      "A  artifacts/summaries/m02/metrics.json",
+      "A  artifacts/summaries/m02/pre_fix_ballistics.json",
+      "A  docs/mechmania32_index2.md",
+      "A  docs/reports/mechmania32_report2.md",
+      "A  docs/rules/mechmania32_rules2.md"
+    ]
+  },
+  "required_paths": {
+    "README.md": true,
+    "bot/mm-config.toml": true,
+    "bot/src/strategy": true,
+    "configs/suites/m02_challenge.json": true,
+    "configs/suites/m02_regression.json": true,
+    "configs/suites/m02_soak.json": true,
+    "configs/toolchain.lock.json": true,
+    "configs/upstream.lock.json": true,
+    "lab/opponents/Cargo.lock": true,
+    "lab/opponents/Cargo.toml": true,
+    "lab/rules/Cargo.lock": true,
+    "lab/rules/Cargo.toml": true
+  },
+  "required_suite_artifact_checks": {
+    "m02_challenge": {
+      "classification": "formal",
+      "current": true,
+      "examined_runs": [
+        {
+          "current": false,
+          "generated_at": "2026-09-19T05:47:26.058529Z",
+          "long_game_coverage": {
+            "complete": true,
+            "final_ticks": [
+              9000,
+              9000,
+              9000,
+              9000,
+              3293,
+              3293,
+              3293,
+              3293,
+              6504,
+              9000,
+              6504,
+              9000,
+              6083,
+              6192,
+              6083,
+              6192,
+              3235,
+              3235,
+              3235,
+              3235,
+              6584,
+              6584,
+              6584,
+              6584
+            ],
+            "games_at_or_after_6000": 16,
+            "games_at_or_after_9000": 6,
+            "required": false
+          },
+          "manifest": {
+            "bytes": 56524,
+            "path": "artifacts/summaries/m02/m02-challenge/challenge-4e66145/manifest.json",
+            "sha256": "731218cac068a092f8486b2cd10f0c8ec67db6afe190f821490775dbcad5953a"
+          },
+          "matrix_current": true,
+          "metrics": {
+            "bytes": 100227,
+            "path": "artifacts/summaries/m02/m02-challenge/challenge-4e66145/metrics.json",
+            "sha256": "57996f2045aa76e6292755d4a6539784329a2ce33eb16568f4739651334ff4fa"
+          },
+          "run_id": "challenge-4e66145"
+        },
+        {
+          "current": true,
+          "generated_at": "2026-09-19T05:53:24.638802Z",
+          "long_game_coverage": {
+            "complete": true,
+            "final_ticks": [
+              9000,
+              9000,
+              9000,
+              9000,
+              3293,
+              3293,
+              3293,
+              3293,
+              6504,
+              9000,
+              6504,
+              9000,
+              6083,
+              6192,
+              6083,
+              6192,
+              3235,
+              3235,
+              3235,
+              3235,
+              6584,
+              6584,
+              6584,
+              6584
+            ],
+            "games_at_or_after_6000": 16,
+            "games_at_or_after_9000": 6,
+            "required": false
+          },
+          "manifest": {
+            "bytes": 57074,
+            "path": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8/manifest.json",
+            "sha256": "e67adf150f5bb1692e4ca99bb06f7e3cd6c6b25cbc2d0b4c0852185e627b1b6b"
+          },
+          "matrix_current": true,
+          "metrics": {
+            "bytes": 100241,
+            "path": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8/metrics.json",
+            "sha256": "029f2f8a51f7a84f7dc802d80657c4860ad25b0cf839c968750fd90d37649620"
+          },
+          "run_id": "challenge-761c8f8"
+        }
+      ],
+      "expected_matches": 24,
+      "inputs_digest": "415afd76f6f9f3d2e28982cbcf904f2b4f61548bd6e7e4da9570733f5b14e6d9",
+      "selected": {
+        "current": true,
+        "generated_at": "2026-09-19T05:53:24.638802Z",
+        "long_game_coverage": {
+          "complete": true,
+          "final_ticks": [
+            9000,
+            9000,
+            9000,
+            9000,
+            3293,
+            3293,
+            3293,
+            3293,
+            6504,
+            9000,
+            6504,
+            9000,
+            6083,
+            6192,
+            6083,
+            6192,
+            3235,
+            3235,
+            3235,
+            3235,
+            6584,
+            6584,
+            6584,
+            6584
+          ],
+          "games_at_or_after_6000": 16,
+          "games_at_or_after_9000": 6,
+          "required": false
+        },
+        "manifest": {
+          "bytes": 57074,
+          "path": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8/manifest.json",
+          "sha256": "e67adf150f5bb1692e4ca99bb06f7e3cd6c6b25cbc2d0b4c0852185e627b1b6b"
+        },
+        "matrix_current": true,
+        "metrics": {
+          "bytes": 100241,
+          "path": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8/metrics.json",
+          "sha256": "029f2f8a51f7a84f7dc802d80657c4860ad25b0cf839c968750fd90d37649620"
+        },
+        "run_id": "challenge-761c8f8"
+      },
+      "suite": {
+        "bytes": 4335,
+        "path": "configs/suites/m02_challenge.json",
+        "sha256": "f6c307b49e33a2c7de693b6bc3eca12b4fc613d41d3819428a928f57a34d3dd0"
+      },
+      "suite_id": "m02-challenge"
+    },
+    "m02_regression": {
+      "classification": "formal",
+      "current": true,
+      "examined_runs": [
+        {
+          "current": false,
+          "generated_at": "2026-09-19T05:43:37.562966Z",
+          "long_game_coverage": {
+            "complete": true,
+            "final_ticks": [
+              3829,
+              3822,
+              3829,
+              3822,
+              3859,
+              3866,
+              3859,
+              3866
+            ],
+            "games_at_or_after_6000": 0,
+            "games_at_or_after_9000": 0,
+            "required": false
+          },
+          "manifest": {
+            "bytes": 31635,
+            "path": "artifacts/summaries/m02/m02-regression/regression-4e66145/manifest.json",
+            "sha256": "e1eef81c65e5593f0351dcf1e7e002cb8522dc7bd2ba7b84f740f0b946755102"
+          },
+          "matrix_current": true,
+          "metrics": {
+            "bytes": 47414,
+            "path": "artifacts/summaries/m02/m02-regression/regression-4e66145/metrics.json",
+            "sha256": "197770258cb2c6aaf5f1d1af7af47cb0c6dadca2129f11c42430fa873b4a9cff"
+          },
+          "run_id": "regression-4e66145"
+        },
+        {
+          "current": true,
+          "generated_at": "2026-09-19T05:51:09.903728Z",
+          "long_game_coverage": {
+            "complete": true,
+            "final_ticks": [
+              3829,
+              3822,
+              3829,
+              3822,
+              3859,
+              3866,
+              3859,
+              3866
+            ],
+            "games_at_or_after_6000": 0,
+            "games_at_or_after_9000": 0,
+            "required": false
+          },
+          "manifest": {
+            "bytes": 32183,
+            "path": "artifacts/summaries/m02/m02-regression/regression-761c8f8/manifest.json",
+            "sha256": "c6499ff389955911795026ae6ccee2232732ccab29b53ddace35c8dc5bf4660a"
+          },
+          "matrix_current": true,
+          "metrics": {
+            "bytes": 47417,
+            "path": "artifacts/summaries/m02/m02-regression/regression-761c8f8/metrics.json",
+            "sha256": "786fbe43dff48b8df25930152fc433c0197d1642c0b417c888a344d54193c9b7"
+          },
+          "run_id": "regression-761c8f8"
+        }
+      ],
+      "expected_matches": 8,
+      "inputs_digest": "387df5b9614f6a2197a97a331928441a46e0f39e2698fe22d953c3af5fc6b672",
+      "selected": {
+        "current": true,
+        "generated_at": "2026-09-19T05:51:09.903728Z",
+        "long_game_coverage": {
+          "complete": true,
+          "final_ticks": [
+            3829,
+            3822,
+            3829,
+            3822,
+            3859,
+            3866,
+            3859,
+            3866
+          ],
+          "games_at_or_after_6000": 0,
+          "games_at_or_after_9000": 0,
+          "required": false
+        },
+        "manifest": {
+          "bytes": 32183,
+          "path": "artifacts/summaries/m02/m02-regression/regression-761c8f8/manifest.json",
+          "sha256": "c6499ff389955911795026ae6ccee2232732ccab29b53ddace35c8dc5bf4660a"
+        },
+        "matrix_current": true,
+        "metrics": {
+          "bytes": 47417,
+          "path": "artifacts/summaries/m02/m02-regression/regression-761c8f8/metrics.json",
+          "sha256": "786fbe43dff48b8df25930152fc433c0197d1642c0b417c888a344d54193c9b7"
+        },
+        "run_id": "regression-761c8f8"
+      },
+      "suite": {
+        "bytes": 2122,
+        "path": "configs/suites/m02_regression.json",
+        "sha256": "08d88a6f086dfac2d8b06dd6855d9feee8228bb77552405f11b3a285fdfa4d54"
+      },
+      "suite_id": "m02-regression"
+    },
+    "m02_soak": {
+      "classification": "soak_scenario",
+      "current": true,
+      "examined_runs": [
+        {
+          "current": false,
+          "generated_at": "2026-09-19T05:44:37.437993Z",
+          "long_game_coverage": {
+            "complete": true,
+            "final_ticks": [
+              9000,
+              9000
+            ],
+            "games_at_or_after_6000": 2,
+            "games_at_or_after_9000": 2,
+            "required": true
+          },
+          "manifest": {
+            "bytes": 22623,
+            "path": "artifacts/summaries/m02/m02-soak/soak-4e66145/manifest.json",
+            "sha256": "b121587a3e3c1804591353f4783ab2386ef242dccfa9f263c8e1ebaa381d5e5f"
+          },
+          "matrix_current": true,
+          "metrics": {
+            "bytes": 15118,
+            "path": "artifacts/summaries/m02/m02-soak/soak-4e66145/metrics.json",
+            "sha256": "33be04789ab0740951a69f33b02fa61212e6759bd6d20bdda637b3c56a3611db"
+          },
+          "run_id": "soak-4e66145"
+        },
+        {
+          "current": true,
+          "generated_at": "2026-09-19T05:52:03.414081Z",
+          "long_game_coverage": {
+            "complete": true,
+            "final_ticks": [
+              9000,
+              9000
+            ],
+            "games_at_or_after_6000": 2,
+            "games_at_or_after_9000": 2,
+            "required": true
+          },
+          "manifest": {
+            "bytes": 23171,
+            "path": "artifacts/summaries/m02/m02-soak/soak-761c8f8/manifest.json",
+            "sha256": "da1ce0ef9097ae530c07782eb416c33ca4ccdac2c571c1553b1b7a0c5057790a"
+          },
+          "matrix_current": true,
+          "metrics": {
+            "bytes": 15116,
+            "path": "artifacts/summaries/m02/m02-soak/soak-761c8f8/metrics.json",
+            "sha256": "de9ab8be246b50b4066c1b3ebe5c552740733dbb6d268cfe4f8e81983ee247b2"
+          },
+          "run_id": "soak-761c8f8"
+        }
+      ],
+      "expected_matches": 2,
+      "inputs_digest": "e01d0f926408e9cb7b960783197fb74e54f32fe49e67a297e84b63815b372bab",
+      "selected": {
+        "current": true,
+        "generated_at": "2026-09-19T05:52:03.414081Z",
+        "long_game_coverage": {
+          "complete": true,
+          "final_ticks": [
+            9000,
+            9000
+          ],
+          "games_at_or_after_6000": 2,
+          "games_at_or_after_9000": 2,
+          "required": true
+        },
+        "manifest": {
+          "bytes": 23171,
+          "path": "artifacts/summaries/m02/m02-soak/soak-761c8f8/manifest.json",
+          "sha256": "da1ce0ef9097ae530c07782eb416c33ca4ccdac2c571c1553b1b7a0c5057790a"
+        },
+        "matrix_current": true,
+        "metrics": {
+          "bytes": 15116,
+          "path": "artifacts/summaries/m02/m02-soak/soak-761c8f8/metrics.json",
+          "sha256": "de9ab8be246b50b4066c1b3ebe5c552740733dbb6d268cfe4f8e81983ee247b2"
+        },
+        "run_id": "soak-761c8f8"
+      },
+      "suite": {
+        "bytes": 1484,
+        "path": "configs/suites/m02_soak.json",
+        "sha256": "af40592da317ef142b9fe88e43407ffd1462280f2b6a1fa47ad20d7b7ac5471f"
+      },
+      "suite_id": "m02-soak"
+    }
+  },
+  "round": "m02",
+  "schema_version": 2,
+  "secret_findings": [],
+  "source_lock_checks": {
+    "cli:Cargo.lock": true,
+    "cli:Cargo.toml": true,
+    "cli_archive": true,
+    "cli_checkout_matches_archive_tree": true,
+    "cli_checkout_present": true,
+    "engine:Cargo.lock": true,
+    "engine:Cargo.toml": true,
+    "engine_archive": true,
+    "engine_checkout_matches_archive_tree": true,
+    "engine_checkout_present": true,
+    "starterpack:Cargo.lock": true,
+    "starterpack:Cargo.toml": true,
+    "starterpack_archive": true,
+    "starterpack_checkout_matches_archive_tree": true,
+    "starterpack_checkout_present": true,
+    "wiki:README.md": true,
+    "wiki:mechanics.md": true,
+    "wiki_archive": true,
+    "wiki_checkout_matches_archive_tree": true,
+    "wiki_checkout_present": true
+  },
+  "source_whitespace_findings": [],
+  "status": "pass_with_warnings",
+  "suite_id": "m02-challenge",
+  "toolchain": {
+    "architecture": "arm64",
+    "build_profile": "release",
+    "caller_toolchain_detected": false,
+    "cargo_home": "$REPO/.local/cargo",
+    "cargo_home_scope": "project_local",
+    "cargo_home_source": "toolchain_lock_project_local",
+    "channel": "stable",
+    "commands": {
+      "cargo_version": {
+        "exit_code": 0,
+        "output": "cargo 1.98.1 (797e8a9bc 2026-08-05)\nrelease: 1.98.1\ncommit-hash: 797e8a9bca276c1c9f9f738d2a20f484fa4eea9d\ncommit-date: 2026-08-05\nhost: aarch64-apple-darwin\nlibgit2: 1.9.4 (sys:0.21.0 vendored)\nlibcurl: 8.7.1 (sys:0.4.90+curl-8.21.0 system ssl:(SecureTransport) LibreSSL/3.3.6)\nssl: OpenSSL 3.6.3 9 Jun 2026\nos: Mac OS 26.3.1 [64-bit]"
+      },
+      "rustc_vv": {
+        "exit_code": 0,
+        "output": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: aarch64-apple-darwin\nrelease: 1.98.1\nLLVM version: 22.1.8"
+      },
+      "rustup_active": {
+        "exit_code": 0,
+        "output": "stable-aarch64-apple-darwin (default)"
+      }
+    },
+    "compiler_fingerprint": "71aa34f5268400fc443d3d54d309a470e6d8bab43bb6fbb46b300f4239c5633a",
+    "environment_overrides": {},
+    "executable_scope": {
+      "cargo": "shared",
+      "rustc": "shared",
+      "rustfmt": "shared",
+      "rustup": "shared"
+    },
+    "executable_sources": {
+      "cargo": "configured_shared_search",
+      "rustc": "configured_shared_search",
+      "rustfmt": "configured_shared_search",
+      "rustup": "caller_path"
+    },
+    "executables": {
+      "cargo": "/opt/homebrew/opt/rustup/bin/cargo",
+      "rustc": "/opt/homebrew/opt/rustup/bin/rustc",
+      "rustfmt": "/opt/homebrew/opt/rustup/bin/rustfmt",
+      "rustup": "/opt/homebrew/bin/rustup"
+    },
+    "fingerprint": "c0199d6128ca2eed3c839a40d00e93a4fdb9615bd24ff59881f12c4a66f64444",
+    "lock_path": "configs/toolchain.lock.json",
+    "lock_sha256": "a9b5264a3ece0ef1056c607f66001a8736eeb60d34580b7c8d72e0a022724578",
+    "official_compatibility": {
+      "reason": "The declared nightly Cargo cannot parse locked edition-2024 dependencies (including clap_lex 1.1.1); local validation uses the recorded stable toolchain while official compatibility remains a separate diagnostic.",
+      "status": "incompatible_with_current_locked_dependencies"
+    },
+    "official_declared_channel": "nightly-2024-07-25",
+    "os": "Darwin",
+    "os_release": "25.3.0",
+    "rustup_home": "$REPO/.local/rustup",
+    "rustup_home_scope": "project_local",
+    "rustup_home_source": "toolchain_lock_project_local",
+    "schema_version": 1,
+    "target_triple": "aarch64-apple-darwin",
+    "usable": true
+  },
+  "warnings": [
+    "仅报告/机器证据晚于代码提交；evaluated_code_commit 绑定当前 HEAD",
+    "The declared nightly Cargo cannot parse locked edition-2024 dependencies (including clap_lex 1.1.1); local validation uses the recorded stable toolchain while official compatibility remains a separate diagnostic."
+  ]
+}

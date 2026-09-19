@@ -1,0 +1,186 @@
+{
+  "schema_version": 2,
+  "round": 2,
+  "task": "M1.1+M2a",
+  "status": "completed_with_open_items",
+  "generated_at": "2026-09-19T05:56:05Z",
+  "evaluated_code_commit": "761c8f80b01fbbf5d50cd2e4b4b719d269e7ea08",
+  "strategy": {
+    "id": "m02-v1",
+    "parameter_set_id": "m02-v1-static-2026-09-19",
+    "learned_parameter_count": 0,
+    "strategy_tree_sha256": "234dc827ea6373cb1ee11f48cb0761f399102c7eb3c5bb1bcd4e98dd7c81ddc6"
+  },
+  "tests": {
+    "passed": 66,
+    "failed": 0,
+    "skipped": 0,
+    "by_category": {
+      "bot": {"passed": 17, "failed": 0, "skipped": 0},
+      "rules": {"passed": 26, "failed": 0, "skipped": 0},
+      "opponents": {"passed": 5, "failed": 0, "skipped": 0},
+      "tools": {"passed": 18, "failed": 0, "skipped": 0}
+    }
+  },
+  "geometry": {
+    "fixed_cases": ["D01", "D02a", "D02b", "D02c", "D03", "D04", "D05"],
+    "fixed_cases_passed": 7,
+    "oracle_queries": 256,
+    "oracle_seed_policy": "fixed deterministic generator",
+    "maximum_pure_scan_point_error": 0.0,
+    "maximum_eval_tick_blast_point_error": 0.000027771415,
+    "first_hit_differences": 0,
+    "physical_mask_differences": 0,
+    "effective_mask_differences": 0,
+    "pre_fix_evidence_path": "artifacts/summaries/m02/pre_fix_ballistics.json"
+  },
+  "healing": {
+    "fixed_cases": ["D06", "D07", "D08", "D09", "D10"],
+    "fixed_cases_passed": 5,
+    "r05_exact_range_boundary_tested": true,
+    "r05_exact_half_arc_boundary_tested": true,
+    "current_effective_capacity_precedes_support_travel": true
+  },
+  "formal_matches_expected": 32,
+  "formal_matches_completed": 32,
+  "scenario_matches_completed": 2,
+  "suites": {
+    "regression": {
+      "classification": "formal",
+      "run_id": "regression-761c8f8",
+      "matches_expected": 8,
+      "matches_completed": 8,
+      "metrics_path": "artifacts/summaries/m02/m02-regression/regression-761c8f8/metrics.json",
+      "manifest_path": "artifacts/summaries/m02/m02-regression/regression-761c8f8/manifest.json",
+      "results": {
+        "v1__vs__starter_symmetric": {"wins": 0, "draws": 0, "losses": 4, "points": 0},
+        "v1__vs__rush_simple": {"wins": 4, "draws": 0, "losses": 0, "points": 12}
+      },
+      "budget": {
+        "calls": 30752,
+        "charge_mean_weighted": 7.884302628155087,
+        "charge_p95_max": 32,
+        "charge_p99_max": 41,
+        "charge_peak": 73,
+        "min_remaining": 500000,
+        "skipped_ticks": 0
+      }
+    },
+    "challenge": {
+      "classification": "formal",
+      "run_id": "challenge-761c8f8",
+      "matches_expected": 24,
+      "matches_completed": 24,
+      "metrics_path": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8/metrics.json",
+      "manifest_path": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8/manifest.json",
+      "results": {
+        "m01_v0__vs__m01_v0": {"wins": 2, "draws": 0, "losses": 2, "points": 6},
+        "m01_v0__vs__support_screen": {"wins": 4, "draws": 0, "losses": 0, "points": 12},
+        "m01_v0__vs__strafe_pressure": {"wins": 2, "draws": 0, "losses": 2, "points": 6},
+        "v1__vs__m01_v0": {"wins": 0, "draws": 0, "losses": 4, "points": 0},
+        "v1__vs__support_screen": {"wins": 4, "draws": 0, "losses": 0, "points": 12},
+        "v1__vs__strafe_pressure": {"wins": 0, "draws": 0, "losses": 4, "points": 0}
+      },
+      "long_game_coverage": {
+        "games_at_or_after_6000": 16,
+        "games_at_or_after_9000": 6
+      },
+      "budget": {
+        "calls": 144006,
+        "charge_mean_weighted": 7.03140670361573,
+        "charge_p95_max": 32,
+        "charge_p99_max": 37,
+        "charge_peak": 62,
+        "min_remaining": 500000,
+        "skipped_ticks": 0
+      }
+    },
+    "soak": {
+      "classification": "soak_scenario",
+      "run_id": "soak-761c8f8",
+      "matches_expected": 2,
+      "matches_completed": 2,
+      "metrics_path": "artifacts/summaries/m02/m02-soak/soak-761c8f8/metrics.json",
+      "manifest_path": "artifacts/summaries/m02/m02-soak/soak-761c8f8/manifest.json",
+      "fixture_path": "lab/fixtures/m02_soak_static_payload.json",
+      "fixture_changes_from_default": {
+        "payload.speed": {"from": 0.02, "to": 0.0},
+        "bot.blaster_damage": {"from": 3.0, "to": 0.0}
+      },
+      "results": {"wins": 1, "draws": 0, "losses": 1},
+      "long_game_coverage": {
+        "games_at_or_after_6000": 2,
+        "games_at_or_after_9000": 2,
+        "maximum_friendly_population": 32,
+        "high_population_ticks": 15198,
+        "contested_ticks": 17028
+      },
+      "budget": {
+        "calls": 18000,
+        "charge_mean_weighted": 26.530114457161908,
+        "charge_p95_max": 32,
+        "charge_p99_max": 35,
+        "charge_peak": 41,
+        "min_remaining": 500000,
+        "skipped_ticks": 0
+      }
+    }
+  },
+  "behavior": {
+    "regression": {
+      "fire_requested": 414,
+      "fire_observed": 414,
+      "blast_error_mean": 0.000009620784337112742,
+      "blast_error_max": 0.00026104081189259887,
+      "healing_requested": 16782,
+      "healing_observed": 16762,
+      "healing_censored": 20,
+      "support_first_radius_tick": 14,
+      "maximum_friendly_population": 28,
+      "high_population_ticks": 4154
+    },
+    "challenge": {
+      "fire_requested": 738,
+      "fire_observed": 738,
+      "blast_error_mean": 0.008560131949907852,
+      "blast_error_max": 0.7107009291648865,
+      "predicted_new_targets": 1074,
+      "actual_new_damaged_targets": 906,
+      "healing_requested": 30034,
+      "healing_observed": 29982,
+      "healing_censored": 52,
+      "effective_capacity_occupancy": 0.32662693579258745,
+      "support_first_radius_tick": 14,
+      "maximum_friendly_population": 32,
+      "high_population_ticks": 9892
+    },
+    "soak": {
+      "fire_requested": 3042,
+      "fire_observed": 3038,
+      "fire_pending": 4,
+      "actual_new_damaged_targets": 5626,
+      "actual_new_damaged_targets_semantics": "With zero blaster damage this counter records reconstructed new shot-contact or invulnerability transitions, not health loss.",
+      "maximum_friendly_population": 32,
+      "high_population_ticks": 15198
+    },
+    "geometry_scope_note": "Pure known-coordinate geometry matched the official oracle. Match-level blast error also includes the separate constant-velocity opponent model and unmodeled dynamic collision correction."
+  },
+  "decision": {
+    "retain": [
+      "exact official-scan ballistics query and same-tick marginal coverage allocation",
+      "two-phase effective-healing-first coordination and full-health support following",
+      "cold-recovery, evidence binding, frozen-opponent, telemetry and audit tooling"
+    ],
+    "performance_regression": "v1 lost all four games against historical m01_v0, all four against strafe_pressure, and all four against starter_symmetric in this bounded matrix.",
+    "reason": "The retained changes repair demonstrated rule and coordination defects, but the tactical weights and formation require a separate retuning round."
+  },
+  "open_items": [
+    "Official nightly-2024-07-25 cannot parse the current edition-2024 dependency lock; local validation used recorded stable 1.98.1.",
+    "Official server-side submission validation was not run because it requires separate Shi authorization.",
+    "No second OS or full online empty-cache recovery was available; clean recovery used fixed source archives and recorded shared/project caches.",
+    "Opponent next-position collision correction is conservative/incomplete at the action level; pure ballistics geometry remains oracle-matched.",
+    "The firing-origin early-return path does not increment the geometry-uncertainty counter, so that metric can undercount uncertainty.",
+    "Organizer clarification remains open for R24 endgame mining CODE versus Wiki DOC behavior.",
+    "The referenced mechmania32_review1.md was not provided, so prompt2 findings were used as the authoritative required set."
+  ]
+}

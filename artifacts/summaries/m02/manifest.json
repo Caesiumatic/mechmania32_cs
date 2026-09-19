@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "round": 2,
+  "task": "M1.1+M2a",
+  "status": "completed_with_open_items",
+  "generated_at": "2026-09-19T05:56:05Z",
+  "repository": {
+    "name": "Caesiumatic/mechmania32_cs",
+    "branch": "main",
+    "remote_origin": "https://github.com/Caesiumatic/mechmania32_cs.git",
+    "base_commit": "e789961d7dedb00f70b1947dfd1435bc68a65cfe",
+    "previous_code_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+    "evaluated_code_commit": "761c8f80b01fbbf5d50cd2e4b4b719d269e7ea08",
+    "delivery_commit": null,
+    "delivery_commit_note": "The evidence commit cannot contain its own final SHA; use Git history and the delivery response."
+  },
+  "document_imports": {
+    "prompt2": {
+      "status": "imported_exactly",
+      "source_path": "/Users/shichen/Downloads/mechmania32_prompt2.md",
+      "sha256": "3e6979128bea47ec4dffcac4cb0f7fa2d54129d44dfe5819513bfaf0dbe3a02a"
+    },
+    "review1": {
+      "status": "not_provided",
+      "repository_path": "docs/reviews/mechmania32_review1.md"
+    }
+  },
+  "upstream": {
+    "engine_runtime": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+    "bot_client_engine": "879578d448251d0acc7f10eef3d7fe5450758096",
+    "starterpack": "f9960353f414938002ea2bb18161b6851a71c40c",
+    "wiki": "6af083bb4c28a4e18d2f7fcdda5a380aebc0545f",
+    "cli": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+    "source_lock_path": "configs/upstream.lock.json",
+    "source_archives_and_checkout_trees_verified": true
+  },
+  "toolchain": {
+    "used_channel": "stable",
+    "rustc": "1.98.1",
+    "cargo": "1.98.1",
+    "target_triple": "aarch64-apple-darwin",
+    "os": "Darwin 25.3.0",
+    "architecture": "arm64",
+    "build_profile": "release",
+    "compiler_fingerprint": "71aa34f5268400fc443d3d54d309a470e6d8bab43bb6fbb46b300f4239c5633a",
+    "toolchain_fingerprint": "c0199d6128ca2eed3c839a40d00e93a4fdb9615bd24ff59881f12c4a66f64444",
+    "lock_path": "configs/toolchain.lock.json",
+    "lock_sha256": "a9b5264a3ece0ef1056c607f66001a8736eeb60d34580b7c8d72e0a022724578",
+    "official_declared_channel": "nightly-2024-07-25",
+    "official_compatibility": "incompatible_with_current_locked_dependencies"
+  },
+  "selected_evidence": {
+    "metrics": {
+      "path": "artifacts/summaries/m02/metrics.json",
+      "sha256": "b34eebde178bb3c8448c2a25efda469c54862f033865b102a92392e4c0870bb6"
+    },
+    "pre_fix_ballistics": {
+      "path": "artifacts/summaries/m02/pre_fix_ballistics.json",
+      "sha256": "c9e118ff89731766e08585b5754fbda005ab3ef2a04895b4f887f0d7ee8fb59e"
+    },
+    "regression": {
+      "run_id": "regression-761c8f8",
+      "metrics": {
+        "path": "artifacts/summaries/m02/m02-regression/regression-761c8f8/metrics.json",
+        "sha256": "786fbe43dff48b8df25930152fc433c0197d1642c0b417c888a344d54193c9b7"
+      },
+      "manifest": {
+        "path": "artifacts/summaries/m02/m02-regression/regression-761c8f8/manifest.json",
+        "sha256": "c6499ff389955911795026ae6ccee2232732ccab29b53ddace35c8dc5bf4660a"
+      }
+    },
+    "challenge": {
+      "run_id": "challenge-761c8f8",
+      "metrics": {
+        "path": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8/metrics.json",
+        "sha256": "029f2f8a51f7a84f7dc802d80657c4860ad25b0cf839c968750fd90d37649620"
+      },
+      "manifest": {
+        "path": "artifacts/summaries/m02/m02-challenge/challenge-761c8f8/manifest.json",
+        "sha256": "e67adf150f5bb1692e4ca99bb06f7e3cd6c6b25cbc2d0b4c0852185e627b1b6b"
+      }
+    },
+    "soak": {
+      "run_id": "soak-761c8f8",
+      "metrics": {
+        "path": "artifacts/summaries/m02/m02-soak/soak-761c8f8/metrics.json",
+        "sha256": "de9ab8be246b50b4066c1b3ebe5c552740733dbb6d268cfe4f8e81983ee247b2"
+      },
+      "manifest": {
+        "path": "artifacts/summaries/m02/m02-soak/soak-761c8f8/manifest.json",
+        "sha256": "da1ce0ef9097ae530c07782eb416c33ca4ccdac2c571c1553b1b7a0c5057790a"
+      }
+    },
+    "cleancheck": {
+      "run_id": "clean-761c8f8",
+      "manifest": {
+        "path": "artifacts/summaries/m02/cleancheck/clean-761c8f8/manifest.json",
+        "sha256": "06ac3c1945a8b80278d850e6c604e97abeb8bb391e924c4f9f8095f960eca56a"
+      }
+    },
+    "audit": {
+      "path": "artifacts/summaries/m02/audit.json",
+      "hash_omitted": "audit is regenerated after this manifest and documentation are written"
+    }
+  },
+  "superseded_attempts": [
+    "clean-4e66145",
+    "regression-4e66145",
+    "challenge-4e66145",
+    "soak-4e66145"
+  ],
+  "selection_policy": "Only evidence whose evaluated code/input fingerprints match 761c8f80b01fbbf5d50cd2e4b4b719d269e7ea08 is normative; older successful runs are preserved as superseded history.",
+  "clean_recovery": {
+    "status": "ok",
+    "source_commit": "761c8f80b01fbbf5d50cd2e4b4b719d269e7ea08",
+    "tracked_only_archive_sha256": "132729be80b62757d1380e5ea87377862c5803141e47c9860d00281de917f706",
+    "initial_absence_confirmed": [
+      ".local",
+      "bot/Cargo.lock",
+      "bot/Cargo.toml",
+      "bot/src/core.rs",
+      "bot/.mm/bin/mm-engine"
+    ],
+    "command_order": [
+      "bootstrap_first",
+      "test",
+      "timed_match",
+      "packcheck",
+      "bootstrap_second"
+    ],
+    "all_exit_codes_zero": true,
+    "strategy_sha256_before": "234dc827ea6373cb1ee11f48cb0761f399102c7eb3c5bb1bcd4e98dd7c81ddc6",
+    "strategy_sha256_after_first": "234dc827ea6373cb1ee11f48cb0761f399102c7eb3c5bb1bcd4e98dd7c81ddc6",
+    "strategy_sha256_after_second": "234dc827ea6373cb1ee11f48cb0761f399102c7eb3c5bb1bcd4e98dd7c81ddc6",
+    "second_bootstrap_idempotent": true,
+    "network_scope": "Cargo network disabled; fixed source archives were seeded after initial-absence verification; project-local Cargo/Rustup homes could reuse recorded package/toolchain caches.",
+    "second_os_or_architecture": "not_run"
+  },
+  "packcheck": {
+    "status": "ok",
+    "only_strategy_restored": true,
+    "strategy_source_sha256": "234dc827ea6373cb1ee11f48cb0761f399102c7eb3c5bb1bcd4e98dd7c81ddc6",
+    "strategy_copied_sha256": "234dc827ea6373cb1ee11f48cb0761f399102c7eb3c5bb1bcd4e98dd7c81ddc6",
+    "binary_sha256": "33e2fddef4923523a79d254a32bebd0401e27094429b21fc7618880f8ae76d6c",
+    "release_build_exit_code": 0,
+    "server_submission_validation": "not_run_requires_shi_authorization"
+  },
+  "formal_matches_expected": 32,
+  "formal_matches_completed": 32,
+  "scenario_matches_completed": 2,
+  "tests": {"passed": 66, "failed": 0, "skipped": 0},
+  "audit_expected_status": "pass_with_warnings"
+}

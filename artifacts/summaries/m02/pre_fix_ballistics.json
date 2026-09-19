@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "round": 2,
+  "evidence_type": "pre_fix_ballistics_counterexamples",
+  "captured_at_utc": "2026-09-19T04:51:59Z",
+  "legacy_source": {
+    "commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+    "strategy_tree_sha256": "9bbc438e5e66905e24ee5b3e1449c356cc4848351b6bfb2fbdac0e42e04ca4b8",
+    "strategy_git_tree_oid": "233a69435e0d2dd0863959ea4114a341140ffbdd",
+    "tactics_rs_sha256": "df17491b0426c8c9a399451895cef2d38d62e67210235cead3e14c87d3b52cbf"
+  },
+  "oracle": {
+    "engine_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+    "fixture": "lab/fixtures/default_config.json",
+    "adapter_test_path": "lab/rules/tests/policy_geometry.rs",
+    "adapter_test_sha256": "5c6d9be42f60cc5a80eaaf3686ae7aa08b55a35e22dc97aca777e20bf6db92be",
+    "method": "The adapter extracts the d13c236 distance/perpendicular gate verbatim. Correct results invoke the production ballistics module directly and compare 256 fixed seeds against pinned engine geom::scan and eval_tick."
+  },
+  "legacy_results": [
+    {
+      "id": "D01",
+      "legacy_result": "fire_true",
+      "correct_result": "zero_damage_endpoint_blast",
+      "legacy_failure": "The old gate treats bot radius plus splash radius as a tube around the entire ray. Perpendicular distance 0.4 is below 0.55, although the radius-0.25 hull is never hit and the endpoint blast is far away."
+    },
+    {
+      "id": "D02a",
+      "legacy_result": "fire_false",
+      "correct_result": "direct_hit_at_9.95",
+      "legacy_failure": "The old centre projection requires along <= 10.0, so a centre at 10.2 is rejected even though its near hull intersects at 9.95."
+    },
+    {
+      "id": "D02b",
+      "legacy_result": "fire_false",
+      "correct_result": "endpoint_splash_hits_at_10.0",
+      "legacy_failure": "The old preliminary centre-distance cutoff is 10.25, so it rejects the centre at 10.5 even though the endpoint blast covers it."
+    },
+    {
+      "id": "D02c",
+      "legacy_result": "fire_false",
+      "correct_result": "endpoint_splash_misses",
+      "legacy_failure": null
+    },
+    {
+      "id": "D03",
+      "legacy_result": "fire_true_but_attributes_the_intended_far_target",
+      "correct_result": "nearest_protected_enemy_sets_blast_and_damage_mask_is_zero",
+      "legacy_failure": "The old function never scans enemy hulls and returns only a Boolean. It cannot report that a nearer, protected enemy terminates the ray before the intended enemy."
+    },
+    {
+      "id": "D04",
+      "legacy_result": "fire_true",
+      "correct_result": "actual_post_turn_ray_hits_wall_and_damage_mask_is_zero",
+      "legacy_failure": "The extracted old geometric gate passes, its target-centre has_line_of_sight check passes, and payload/deposit blocker checks are clear. The turn-limited actual ray instead enters wall tile (5,8)."
+    },
+    {
+      "id": "D05",
+      "legacy_result": "reserves_only_the_selected_target_id",
+      "correct_result": "first_mask_0b011_second_physical_mask_0b110_second_marginal_mask_0b100",
+      "legacy_failure": "The old Boolean return cannot express physical or currently damageable coverage sets. Its controller therefore cannot subtract already covered enemies when scoring the second shooter."
+    }
+  ],
+  "post_fix_test": {
+    "command": "cargo test --locked --manifest-path lab/rules/Cargo.toml --test policy_geometry -- --nocapture",
+    "passed": 7,
+    "failed": 0,
+    "fixed_seed_queries": 256,
+    "maximum_scan_blast_point_error": 0.0,
+    "maximum_eval_tick_blast_point_error": 0.000027771415,
+    "eval_tick_tolerance": 0.001,
+    "eval_tick_tolerance_reason": "The official eval_tick performs f32 collision cleanup before firing; the tolerance is the pinned engine EPSILON and the observed error is substantially smaller.",
+    "first_hit_differences": 0,
+    "physical_mask_differences": 0,
+    "damageable_mask_differences": 0
+  }
+}

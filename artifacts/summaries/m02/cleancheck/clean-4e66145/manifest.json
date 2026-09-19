@@ -1,0 +1,425 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "$HOME/.pyenv/versions/3.14.3/bin/python3",
+        "tools/mm32.py",
+        "bootstrap"
+      ],
+      "cwd": ".local/cleanroom/clean-4e66145/repo",
+      "duration_seconds": 35.869252,
+      "exit_code": 0,
+      "label": "bootstrap_first",
+      "log_bytes": 19953,
+      "log_path": ".local/cleanroom/clean-4e66145/logs/bootstrap_first.log",
+      "log_sha256": "f2b1f5d98e554593560e930250a76c0a003d89bf189fbbb3494f205b168323ed",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$HOME/.pyenv/versions/3.14.3/bin/python3",
+        "tools/mm32.py",
+        "test",
+        "--round",
+        "m02",
+        "--suite",
+        "configs/suites/m02_cleancheck.json"
+      ],
+      "cwd": ".local/cleanroom/clean-4e66145/repo",
+      "duration_seconds": 45.20392,
+      "exit_code": 0,
+      "label": "test",
+      "log_bytes": 14104,
+      "log_path": ".local/cleanroom/clean-4e66145/logs/test.log",
+      "log_sha256": "52f5186a9ee59c987d79c3e0f9f6b7136714bd96051e1b11024c9c8c67253f71",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$HOME/.pyenv/versions/3.14.3/bin/python3",
+        "tools/mm32.py",
+        "smoke",
+        "--round",
+        "m02",
+        "--suite",
+        "configs/suites/m02_cleancheck.json",
+        "--run-id",
+        "acceptance"
+      ],
+      "cwd": ".local/cleanroom/clean-4e66145/repo",
+      "duration_seconds": 27.647526,
+      "exit_code": 0,
+      "label": "timed_match",
+      "log_bytes": 4971,
+      "log_path": ".local/cleanroom/clean-4e66145/logs/timed_match.log",
+      "log_sha256": "afa94c5583edd3372386ba7b1385bfe32d72fc63cff7a519f8eef270cf2bbe41",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$HOME/.pyenv/versions/3.14.3/bin/python3",
+        "tools/mm32.py",
+        "packcheck",
+        "--round",
+        "m02",
+        "--suite",
+        "configs/suites/m02_cleancheck.json",
+        "--run-id",
+        "acceptance"
+      ],
+      "cwd": ".local/cleanroom/clean-4e66145/repo",
+      "duration_seconds": 13.857433,
+      "exit_code": 0,
+      "label": "packcheck",
+      "log_bytes": 8057,
+      "log_path": ".local/cleanroom/clean-4e66145/logs/packcheck.log",
+      "log_sha256": "131325f48a3a3c8007ead5159f97191815a1bc949f6d4abf0f2651a826656c93",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$HOME/.pyenv/versions/3.14.3/bin/python3",
+        "tools/mm32.py",
+        "bootstrap"
+      ],
+      "cwd": ".local/cleanroom/clean-4e66145/repo",
+      "duration_seconds": 0.283476,
+      "exit_code": 0,
+      "label": "bootstrap_second",
+      "log_bytes": 17980,
+      "log_path": ".local/cleanroom/clean-4e66145/logs/bootstrap_second.log",
+      "log_sha256": "5513fb526b4f14201d94c4fb7bdab96c716eb6ee3ba6609194ab1941d97701cf",
+      "timed_out": false
+    }
+  ],
+  "first_restore": {
+    "build_records": {
+      "cli": {
+        "binary": {
+          "bytes": 5305536,
+          "path": ".local/bin/mm-cli",
+          "sha256": "e68d3468917685faea7a1a3cf56144dfd0e7336d71812e9affefee0df28955ed"
+        },
+        "build_fingerprint": "c42420a2f8d837dc6440fdee3b6e89f08aef96de43ea8b47f459057e3fb44821",
+        "command": {
+          "argv": [
+            "/opt/homebrew/opt/rustup/bin/cargo",
+            "+stable",
+            "build",
+            "--locked",
+            "--manifest-path",
+            "$REPO/.local/upstream/cli/Cargo.toml",
+            "--release",
+            "--bin",
+            "mm-cli"
+          ],
+          "cwd": ".",
+          "duration_seconds": 22.188763,
+          "exit_code": 0,
+          "log_bytes": 4057,
+          "log_path": ".local/records/logs/bootstrap-cli-build.log",
+          "log_sha256": "526e06897ea5cd88376633c923b1092110f89026473692ad3b18f4d4ea4c8284",
+          "timed_out": false
+        },
+        "component": "cli",
+        "generated_at": "2026-09-19T05:41:13.341059Z",
+        "platform": {
+          "architecture": "arm64",
+          "os": "Darwin",
+          "os_release": "25.3.0"
+        },
+        "reuse": "rebuilt",
+        "schema_version": 1,
+        "source": {
+          "binary_name": "mm-cli",
+          "cargo_lock_sha256": "ab1b72ff100106f995a0441b501726988dd295a4d733fbf4762c6d95162d5c97",
+          "manifest_sha256": "9406204bd556591ebdc44c424f2b00f2d0d8d28b0a0ccbde9ecab9cc8b5121d8",
+          "profile": "release",
+          "source_commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+          "source_tree_sha256": "b13f40ed97c831e812c9bfa4ec5c5417e37ecc467b4cfa3ba3b380efaee255de",
+          "target_triple": "aarch64-apple-darwin",
+          "toolchain_fingerprint": "69b33bfd1bb5290bbcb3377fdad9de47547b865f123711be39e03a99ec8d9ea3"
+        },
+        "status": "ok",
+        "target_triple": "aarch64-apple-darwin",
+        "toolchain": {
+          "architecture": "arm64",
+          "build_profile": "release",
+          "caller_toolchain_detected": false,
+          "cargo_home": "$REPO/.local/cargo",
+          "cargo_home_scope": "shared",
+          "cargo_home_source": "environment:CARGO_HOME",
+          "channel": "stable",
+          "commands": {
+            "cargo_version": {
+              "exit_code": 0,
+              "output": "cargo 1.98.1 (797e8a9bc 2026-08-05)\nrelease: 1.98.1\ncommit-hash: 797e8a9bca276c1c9f9f738d2a20f484fa4eea9d\ncommit-date: 2026-08-05\nhost: aarch64-apple-darwin\nlibgit2: 1.9.4 (sys:0.21.0 vendored)\nlibcurl: 8.7.1 (sys:0.4.90+curl-8.21.0 system ssl:(SecureTransport) LibreSSL/3.3.6)\nssl: OpenSSL 3.6.3 9 Jun 2026\nos: Mac OS 26.3.1 [64-bit]"
+            },
+            "rustc_vv": {
+              "exit_code": 0,
+              "output": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: aarch64-apple-darwin\nrelease: 1.98.1\nLLVM version: 22.1.8"
+            },
+            "rustup_active": {
+              "exit_code": 0,
+              "output": "stable-aarch64-apple-darwin (default)"
+            }
+          },
+          "compiler_fingerprint": "71aa34f5268400fc443d3d54d309a470e6d8bab43bb6fbb46b300f4239c5633a",
+          "environment_overrides": {
+            "CARGO_HOME": "$REPO/.local/cargo",
+            "CARGO_NET_OFFLINE": "true",
+            "MM32_BUILD_PROFILE": "release",
+            "MM32_CARGO": "/opt/homebrew/opt/rustup/bin/cargo",
+            "MM32_RUSTC": "/opt/homebrew/opt/rustup/bin/rustc",
+            "MM32_RUSTFMT": "/opt/homebrew/opt/rustup/bin/rustfmt",
+            "MM32_RUSTUP": "/opt/homebrew/bin/rustup",
+            "MM32_RUST_TOOLCHAIN": "stable",
+            "RUSTUP_HOME": "$REPO/.local/rustup"
+          },
+          "executable_scope": {
+            "cargo": "shared",
+            "rustc": "shared",
+            "rustfmt": "shared",
+            "rustup": "shared"
+          },
+          "executable_sources": {
+            "cargo": "environment:MM32_CARGO",
+            "rustc": "environment:MM32_RUSTC",
+            "rustfmt": "environment:MM32_RUSTFMT",
+            "rustup": "environment:MM32_RUSTUP"
+          },
+          "executables": {
+            "cargo": "/opt/homebrew/opt/rustup/bin/cargo",
+            "rustc": "/opt/homebrew/opt/rustup/bin/rustc",
+            "rustfmt": "/opt/homebrew/opt/rustup/bin/rustfmt",
+            "rustup": "/opt/homebrew/bin/rustup"
+          },
+          "fingerprint": "69b33bfd1bb5290bbcb3377fdad9de47547b865f123711be39e03a99ec8d9ea3",
+          "lock_path": "configs/toolchain.lock.json",
+          "lock_sha256": "a9b5264a3ece0ef1056c607f66001a8736eeb60d34580b7c8d72e0a022724578",
+          "official_compatibility": {
+            "reason": "The declared nightly Cargo cannot parse locked edition-2024 dependencies (including clap_lex 1.1.1); local validation uses the recorded stable toolchain while official compatibility remains a separate diagnostic.",
+            "status": "incompatible_with_current_locked_dependencies"
+          },
+          "official_declared_channel": "nightly-2024-07-25",
+          "os": "Darwin",
+          "os_release": "25.3.0",
+          "rustup_home": "$REPO/.local/rustup",
+          "rustup_home_scope": "shared",
+          "rustup_home_source": "environment:RUSTUP_HOME",
+          "schema_version": 1,
+          "target_triple": "aarch64-apple-darwin",
+          "usable": true
+        }
+      },
+      "engine": {
+        "binary": {
+          "bytes": 1898192,
+          "path": "bot/.mm/bin/mm-engine",
+          "sha256": "5b1b8b05ef6df9929715d724fd80d17fce416f04331ebeac2dd779e295262e76"
+        },
+        "build_fingerprint": "9f3e103bd0c2d659ccc151849cbc82d8ea116ee2e3d1b67194aca964587d32fd",
+        "command": {
+          "argv": [
+            "/opt/homebrew/opt/rustup/bin/cargo",
+            "+stable",
+            "build",
+            "--locked",
+            "--manifest-path",
+            "$REPO/.local/upstream/engine/Cargo.toml",
+            "--release",
+            "--bin",
+            "mm-engine"
+          ],
+          "cwd": ".",
+          "duration_seconds": 13.382968,
+          "exit_code": 0,
+          "log_bytes": 2779,
+          "log_path": ".local/records/logs/bootstrap-engine-build.log",
+          "log_sha256": "96b637301c19535201ecccba70d45415146e34415fa0c7dd3056e94b17dfddd3",
+          "timed_out": false
+        },
+        "component": "engine",
+        "generated_at": "2026-09-19T05:40:51.142446Z",
+        "platform": {
+          "architecture": "arm64",
+          "os": "Darwin",
+          "os_release": "25.3.0"
+        },
+        "reuse": "rebuilt",
+        "schema_version": 1,
+        "source": {
+          "binary_name": "mm-engine",
+          "cargo_lock_sha256": "758d38acdd4a066c09a53f5fd55cc2b54e7b1f9c3041c633173d87a40ee82f1d",
+          "manifest_sha256": "73df7239c844fbad60c2ed6d99e8459686cc6a858fc5ab04c14f5fe098694cf1",
+          "profile": "release",
+          "source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+          "source_tree_sha256": "ec25201d3c0aba8d5d6004bc17715370a41f4db3a55be1589f52925999c10879",
+          "target_triple": "aarch64-apple-darwin",
+          "toolchain_fingerprint": "69b33bfd1bb5290bbcb3377fdad9de47547b865f123711be39e03a99ec8d9ea3"
+        },
+        "status": "ok",
+        "target_triple": "aarch64-apple-darwin",
+        "toolchain": {
+          "architecture": "arm64",
+          "build_profile": "release",
+          "caller_toolchain_detected": false,
+          "cargo_home": "$REPO/.local/cargo",
+          "cargo_home_scope": "shared",
+          "cargo_home_source": "environment:CARGO_HOME",
+          "channel": "stable",
+          "commands": {
+            "cargo_version": {
+              "exit_code": 0,
+              "output": "cargo 1.98.1 (797e8a9bc 2026-08-05)\nrelease: 1.98.1\ncommit-hash: 797e8a9bca276c1c9f9f738d2a20f484fa4eea9d\ncommit-date: 2026-08-05\nhost: aarch64-apple-darwin\nlibgit2: 1.9.4 (sys:0.21.0 vendored)\nlibcurl: 8.7.1 (sys:0.4.90+curl-8.21.0 system ssl:(SecureTransport) LibreSSL/3.3.6)\nssl: OpenSSL 3.6.3 9 Jun 2026\nos: Mac OS 26.3.1 [64-bit]"
+            },
+            "rustc_vv": {
+              "exit_code": 0,
+              "output": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: aarch64-apple-darwin\nrelease: 1.98.1\nLLVM version: 22.1.8"
+            },
+            "rustup_active": {
+              "exit_code": 0,
+              "output": "stable-aarch64-apple-darwin (default)"
+            }
+          },
+          "compiler_fingerprint": "71aa34f5268400fc443d3d54d309a470e6d8bab43bb6fbb46b300f4239c5633a",
+          "environment_overrides": {
+            "CARGO_HOME": "$REPO/.local/cargo",
+            "CARGO_NET_OFFLINE": "true",
+            "MM32_BUILD_PROFILE": "release",
+            "MM32_CARGO": "/opt/homebrew/opt/rustup/bin/cargo",
+            "MM32_RUSTC": "/opt/homebrew/opt/rustup/bin/rustc",
+            "MM32_RUSTFMT": "/opt/homebrew/opt/rustup/bin/rustfmt",
+            "MM32_RUSTUP": "/opt/homebrew/bin/rustup",
+            "MM32_RUST_TOOLCHAIN": "stable",
+            "RUSTUP_HOME": "$REPO/.local/rustup"
+          },
+          "executable_scope": {
+            "cargo": "shared",
+            "rustc": "shared",
+            "rustfmt": "shared",
+            "rustup": "shared"
+          },
+          "executable_sources": {
+            "cargo": "environment:MM32_CARGO",
+            "rustc": "environment:MM32_RUSTC",
+            "rustfmt": "environment:MM32_RUSTFMT",
+            "rustup": "environment:MM32_RUSTUP"
+          },
+          "executables": {
+            "cargo": "/opt/homebrew/opt/rustup/bin/cargo",
+            "rustc": "/opt/homebrew/opt/rustup/bin/rustc",
+            "rustfmt": "/opt/homebrew/opt/rustup/bin/rustfmt",
+            "rustup": "/opt/homebrew/bin/rustup"
+          },
+          "fingerprint": "69b33bfd1bb5290bbcb3377fdad9de47547b865f123711be39e03a99ec8d9ea3",
+          "lock_path": "configs/toolchain.lock.json",
+          "lock_sha256": "a9b5264a3ece0ef1056c607f66001a8736eeb60d34580b7c8d72e0a022724578",
+          "official_compatibility": {
+            "reason": "The declared nightly Cargo cannot parse locked edition-2024 dependencies (including clap_lex 1.1.1); local validation uses the recorded stable toolchain while official compatibility remains a separate diagnostic.",
+            "status": "incompatible_with_current_locked_dependencies"
+          },
+          "official_declared_channel": "nightly-2024-07-25",
+          "os": "Darwin",
+          "os_release": "25.3.0",
+          "rustup_home": "$REPO/.local/rustup",
+          "rustup_home_scope": "shared",
+          "rustup_home_source": "environment:RUSTUP_HOME",
+          "schema_version": 1,
+          "target_triple": "aarch64-apple-darwin",
+          "usable": true
+        }
+      }
+    },
+    "restored_scaffold": [
+      "bot/Cargo.lock",
+      "bot/Cargo.toml",
+      "bot/README.md",
+      "bot/rust-toolchain.toml",
+      "bot/src/core.rs",
+      "bot/src/main.rs"
+    ],
+    "source_actions": [
+      {
+        "action": "extract",
+        "path": ".local/upstream/engine",
+        "source": "engine"
+      },
+      {
+        "action": "extract",
+        "path": ".local/upstream/wiki",
+        "source": "wiki"
+      },
+      {
+        "action": "extract",
+        "path": ".local/upstream/rust-starterpack",
+        "source": "starterpack"
+      },
+      {
+        "action": "extract",
+        "path": ".local/upstream/cli",
+        "source": "cli"
+      }
+    ]
+  },
+  "generated_at": "2026-09-19T05:42:40.359173Z",
+  "initial_absence": {
+    ".local": true,
+    "bot/Cargo.lock": true,
+    "bot/Cargo.toml": true,
+    "bot/src/core.rs": true,
+    "engine_binary": true
+  },
+  "project_root": ".local/cleanroom/clean-4e66145/repo",
+  "round": "m02",
+  "run_id": "clean-4e66145",
+  "schema_version": 2,
+  "second_bootstrap_idempotent": true,
+  "shared_cache_conditions": {
+    "cargo_home": "$REPO/.local/cargo",
+    "cargo_home_scope": "project_local",
+    "fixed_source_archives_seeded_after_initial_check": [
+      {
+        "bytes": 126613,
+        "path": ".local/downloads/engine-4cbd3467.tar.gz",
+        "sha256": "7940b76b9365bf36501c23462ed1334ca43df8e05821f33f58160bd56f2332d7",
+        "source": "engine"
+      },
+      {
+        "bytes": 19846,
+        "path": ".local/downloads/wiki-6af083bb.tar.gz",
+        "sha256": "0e1260aee9951d2398bbfb8d3e0a3757d50b3570e8d5c40ea239b0af2972bc23",
+        "source": "wiki"
+      },
+      {
+        "bytes": 11485,
+        "path": ".local/downloads/rust-starterpack-f9960353.tar.gz",
+        "sha256": "fdeb22694a86ea86e9c2460bcefe89916df17dfd0fc18751c0fe55289eb8f694",
+        "source": "starterpack"
+      },
+      {
+        "bytes": 45374,
+        "path": ".local/downloads/cli-4c5bb2f3.tar.gz",
+        "sha256": "3fcf97825033b37ad92049d0914e81760542f36842eb04e44dfaa71bee4fb1e3",
+        "source": "cli"
+      }
+    ],
+    "network_disabled_for_cargo": true,
+    "rustup_home": "$REPO/.local/rustup",
+    "rustup_home_scope": "project_local"
+  },
+  "source_commit": "4e6614544cb7e1e78377e60a9af478a0545555e6",
+  "source_ref": "4e6614544cb7e1e78377e60a9af478a0545555e6",
+  "status": "ok",
+  "strategy_sha256_after_first": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d",
+  "strategy_sha256_after_second": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d",
+  "strategy_sha256_before": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d",
+  "suite": {
+    "bytes": 1045,
+    "path": "configs/suites/m02_cleancheck.json",
+    "sha256": "15c93257be493a4bfc5fc64233fa0a1ca7540fe6a1cb280c8ce9ecfdd9c903be"
+  },
+  "suite_id": "m02-cleancheck",
+  "toolchain_compiler_fingerprint": "71aa34f5268400fc443d3d54d309a470e6d8bab43bb6fbb46b300f4239c5633a",
+  "tracked_archive_sha256": "f0897c10f55a8e3422a096c332cb00d88f45da04cf63a06ffe7588adbe9000dd"
+}

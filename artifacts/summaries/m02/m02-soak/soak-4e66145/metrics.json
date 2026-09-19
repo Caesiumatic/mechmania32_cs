@@ -1,0 +1,441 @@
+{
+  "batch_inputs": {
+    "fixture": {
+      "path": "lab/fixtures/m02_soak_static_payload.json",
+      "sha256": "6287287dc7f0a2f3d86c42c13a71bc3994dd339e185a9dcc99ff4f70982f55d0"
+    },
+    "suite": {
+      "path": "configs/suites/m02_soak.json",
+      "sha256": "af40592da317ef142b9fe88e43407ffd1462280f2b6a1fa47ad20d7b7ac5471f"
+    }
+  },
+  "behavior": {
+    "blast_error": {
+      "censored": 0,
+      "max": 0.032242730259895325,
+      "mean": 8.337823912083419e-05,
+      "pending": 4,
+      "samples": 3038
+    },
+    "control_and_density": {
+      "contested_ticks": 17028,
+      "enemy_presence_ticks": 17028,
+      "friendly_presence_ticks": 17028,
+      "high_population_thresholds": [
+        24
+      ],
+      "high_population_ticks": 15198,
+      "max_friendly_population": 32,
+      "near_neighbor_distances": [
+        0.800000011920929
+      ],
+      "near_neighbor_pair_rate": 0.16510957679461766,
+      "near_neighbor_pairs": 1264742,
+      "near_neighbor_ticks": 17996,
+      "observation_ticks": 18000,
+      "pair_samples": 7660016
+    },
+    "damage": {
+      "actual_new_damaged_targets": 5626,
+      "feedback_censored_frames": 0,
+      "feedback_complete_frames": 2250,
+      "feedback_frames": 2250,
+      "predicted_new_targets": 5636,
+      "predicted_new_targets_pending": 10,
+      "transition_censored": 0,
+      "transition_observable": 68832,
+      "transition_pending": 64
+    },
+    "fire": {
+      "candidates_evaluated": 6292738,
+      "censored": 0,
+      "feedback_observable": 3038,
+      "geometry_uncertain_candidates": 7630,
+      "not_observed": 0,
+      "observed": 3038,
+      "observed_rate": 1.0,
+      "pending": 4,
+      "prediction_missing": 0,
+      "prediction_samples": 3042,
+      "requested": 3042,
+      "zero_marginal_candidates_skipped": 6214768,
+      "zero_marginal_fire_suppressions": 201870
+    },
+    "healing": {
+      "censored": 0,
+      "channel_tick_slots": 71876,
+      "demand_limited_capacity_slots": 0,
+      "effective_capacity_occupancy": null,
+      "feedback_observable": 0,
+      "not_observed": 0,
+      "observed_channels": 0,
+      "observed_ticks": 0,
+      "pending": 0,
+      "planned_effective_channels": 0,
+      "request_ticks": 0,
+      "requested": 0,
+      "target_matches": 0,
+      "target_mismatches": 0
+    },
+    "summaries": 2,
+    "support": {
+      "anchor_samples": 71876,
+      "far_travel_ticks": 0,
+      "far_travelers": 0,
+      "first_radius_observed_matches": 2,
+      "first_radius_tick_max": 14,
+      "first_radius_tick_min": 14,
+      "full_health_follow_distance_max": 2.9632182121276855,
+      "full_health_follow_distance_mean": 1.6736180273360617,
+      "full_health_follow_samples": 71876,
+      "planned_travelers": 4694,
+      "travel_ticks": 1224
+    },
+    "telemetry_schema": "m02_behavior_aggregate_v1"
+  },
+  "budget": {
+    "calls": 18000,
+    "charge_mean_weighted": 25.004778308700967,
+    "charge_p95_max": 31,
+    "charge_p99_max": 34,
+    "charge_peak": 76,
+    "low_budget_ticks": 0,
+    "min_remaining": 500000,
+    "observed_charges": 17998,
+    "skipped_ticks": 0,
+    "summaries": 2
+  },
+  "by_candidate_opponent": {
+    "v1__vs__v1_frozen_same_batch": {
+      "average_points": 1.5,
+      "candidate": "v1",
+      "draws": 0,
+      "games": 2,
+      "losses": 1,
+      "opponent": "v1_frozen_same_batch",
+      "points": 3,
+      "wins": 1
+    }
+  },
+  "classification": "soak_scenario",
+  "formal_matches_completed": 2,
+  "formal_matches_expected": 2,
+  "generated_at": "2026-09-19T05:44:37.437993Z",
+  "inputs_digest": "9e4d623e0168da34e3831ed1a33d88855d470071a7bff874eb20a4041341c8d8",
+  "long_game_coverage": {
+    "complete": true,
+    "final_ticks": [
+      9000,
+      9000
+    ],
+    "games_at_or_after_6000": 2,
+    "games_at_or_after_9000": 2,
+    "required": true
+  },
+  "matches": [
+    {
+      "callback_coverage_complete": true,
+      "candidate": "v1",
+      "candidate_binary_sha256": "e2ac1ca3e1e88ad37cab0b44f1e29be0f631d4b3e89863c90c2917f450c47967",
+      "candidate_outcome": "loss",
+      "candidate_side": "a",
+      "candidate_telemetry": [
+        {
+          "actual_new_damaged_targets": 2813,
+          "blast_error_censored": 0,
+          "blast_error_max": 0.032242730259895325,
+          "blast_error_mean": 8.26778709447015e-05,
+          "blast_error_pending": 2,
+          "blast_error_samples": 1519,
+          "calls": 9000,
+          "charge_mean": 25.12656961884654,
+          "charge_p95": 31,
+          "charge_p99": 34,
+          "charge_peak": 69,
+          "contested_control_ticks": 8514,
+          "control_observation_ticks": 9000,
+          "damage_feedback_censored_frames": 0,
+          "damage_feedback_complete_frames": 1125,
+          "damage_feedback_frames": 1125,
+          "damage_transition_censored": 0,
+          "damage_transition_observable": 34416,
+          "damage_transition_pending": 32,
+          "demand_limited_heal_capacity_slots": 0,
+          "effective_heal_capacity_occupancy": null,
+          "enemy_control_presence_ticks": 8514,
+          "far_support_travel_ticks": 0,
+          "far_support_travelers": 0,
+          "fire_candidates_evaluated": 3146369,
+          "fire_feedback_censored": 0,
+          "fire_feedback_observable": 1519,
+          "fire_feedback_pending": 2,
+          "fire_not_observed": 0,
+          "fire_observed": 1519,
+          "fire_observed_rate": 1.0,
+          "fire_requests": 1521,
+          "first_contact": 527,
+          "first_healer_support_radius": 14,
+          "first_mining": 412,
+          "first_payload_arrival": 486,
+          "first_tick": 0,
+          "friendly_control_presence_ticks": 8514,
+          "friendly_pair_samples": 3830008,
+          "full_health_follow_distance_max": 2.963078022003174,
+          "full_health_follow_distance_mean": 1.673636899358902,
+          "full_health_follow_samples": 35938,
+          "geometry_uncertain_candidates": 3815,
+          "heal_feedback_censored": 0,
+          "heal_feedback_observable": 0,
+          "heal_feedback_pending": 0,
+          "heal_not_observed": 0,
+          "heal_observed_channels": 0,
+          "heal_observed_ticks": 0,
+          "heal_request_ticks": 0,
+          "heal_requests": 0,
+          "heal_target_matches": 0,
+          "heal_target_mismatches": 0,
+          "healer_channel_tick_slots": 35938,
+          "high_population_threshold": 24,
+          "high_population_ticks": 7599,
+          "last_tick": 8999,
+          "low_budget_ticks": 0,
+          "max_friendly_population": 32,
+          "min_remaining": 500000,
+          "near_neighbor_distance": 0.800000011920929,
+          "near_neighbor_pair_rate": 0.16510957679461766,
+          "near_neighbor_pairs": 632371,
+          "near_neighbor_ticks": 8998,
+          "observed_charges": 8999,
+          "planned_effective_heal_channels": 0,
+          "planned_support_travelers": 2347,
+          "predicted_new_damage_targets": 2818,
+          "predicted_new_damage_targets_pending": 5,
+          "shot_prediction_missing": 0,
+          "shot_prediction_samples": 1521,
+          "skipped_ticks": 0,
+          "state_observation_ticks": 9000,
+          "support_anchor_samples": 35938,
+          "support_travel_ticks": 612,
+          "team_slot": 0,
+          "telemetry_schema": "m02_behavior_v1",
+          "zero_marginal_candidates_skipped": 3107384,
+          "zero_marginal_fire_suppressions": 100935
+        }
+      ],
+      "config_sha256": "6287287dc7f0a2f3d86c42c13a71bc3994dd339e185a9dcc99ff4f70982f55d0",
+      "end_reason": "tokens",
+      "engine_elapsed": "4.667557625s",
+      "engine_result": {
+        "reason": "tokens",
+        "tick": 9000,
+        "winner": "B"
+      },
+      "exit_code": 0,
+      "fatal_marker": false,
+      "final_tick": 9000,
+      "id": "soak-v1-a",
+      "logs": {
+        "bot_a": {
+          "bytes": 16778,
+          "path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-a/a.log",
+          "sha256": "146bd2cb401f366730734e3c8ae31f858964386e7feeeca43f8fc23e1603b822"
+        },
+        "bot_b": {
+          "bytes": 16780,
+          "path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-a/b.log",
+          "sha256": "ce81b12b8246d74a05b302b114d918f775653b15a40d39a12cf50ee460c9e43d"
+        },
+        "gamelog": {
+          "bytes": 32108447,
+          "path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-a/game.mmgl",
+          "sha256": "9a7168e14527d82c1f71230df0bcdd1d6186e78ec1149af481766afca8894921"
+        },
+        "runner": {
+          "bytes": 15,
+          "path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-a/runner.log",
+          "sha256": "cd0011d17295328eed22b930467a2892d7b99501e4bdf3cc36dd8cc5840bc6fa"
+        }
+      },
+      "official_error_log_clean": true,
+      "opponent": "v1_frozen_same_batch",
+      "opponent_binary_sha256": "e2ac1ca3e1e88ad37cab0b44f1e29be0f631d4b3e89863c90c2917f450c47967",
+      "repetition": 1,
+      "result_line_present": true,
+      "time_enforcement": true,
+      "valid": true,
+      "wall_seconds": 4.939282,
+      "winner": "B"
+    },
+    {
+      "callback_coverage_complete": true,
+      "candidate": "v1",
+      "candidate_binary_sha256": "e2ac1ca3e1e88ad37cab0b44f1e29be0f631d4b3e89863c90c2917f450c47967",
+      "candidate_outcome": "win",
+      "candidate_side": "b",
+      "candidate_telemetry": [
+        {
+          "actual_new_damaged_targets": 2813,
+          "blast_error_censored": 0,
+          "blast_error_max": 0.03222214803099632,
+          "blast_error_mean": 8.407860729696688e-05,
+          "blast_error_pending": 2,
+          "blast_error_samples": 1519,
+          "calls": 9000,
+          "charge_mean": 24.882986998555396,
+          "charge_p95": 30,
+          "charge_p99": 33,
+          "charge_peak": 76,
+          "contested_control_ticks": 8514,
+          "control_observation_ticks": 9000,
+          "damage_feedback_censored_frames": 0,
+          "damage_feedback_complete_frames": 1125,
+          "damage_feedback_frames": 1125,
+          "damage_transition_censored": 0,
+          "damage_transition_observable": 34416,
+          "damage_transition_pending": 32,
+          "demand_limited_heal_capacity_slots": 0,
+          "effective_heal_capacity_occupancy": null,
+          "enemy_control_presence_ticks": 8514,
+          "far_support_travel_ticks": 0,
+          "far_support_travelers": 0,
+          "fire_candidates_evaluated": 3146369,
+          "fire_feedback_censored": 0,
+          "fire_feedback_observable": 1519,
+          "fire_feedback_pending": 2,
+          "fire_not_observed": 0,
+          "fire_observed": 1519,
+          "fire_observed_rate": 1.0,
+          "fire_requests": 1521,
+          "first_contact": 527,
+          "first_healer_support_radius": 14,
+          "first_mining": 412,
+          "first_payload_arrival": 486,
+          "first_tick": 0,
+          "friendly_control_presence_ticks": 8514,
+          "friendly_pair_samples": 3830008,
+          "full_health_follow_distance_max": 2.9632182121276855,
+          "full_health_follow_distance_mean": 1.6735991553132215,
+          "full_health_follow_samples": 35938,
+          "geometry_uncertain_candidates": 3815,
+          "heal_feedback_censored": 0,
+          "heal_feedback_observable": 0,
+          "heal_feedback_pending": 0,
+          "heal_not_observed": 0,
+          "heal_observed_channels": 0,
+          "heal_observed_ticks": 0,
+          "heal_request_ticks": 0,
+          "heal_requests": 0,
+          "heal_target_matches": 0,
+          "heal_target_mismatches": 0,
+          "healer_channel_tick_slots": 35938,
+          "high_population_threshold": 24,
+          "high_population_ticks": 7599,
+          "last_tick": 8999,
+          "low_budget_ticks": 0,
+          "max_friendly_population": 32,
+          "min_remaining": 500000,
+          "near_neighbor_distance": 0.800000011920929,
+          "near_neighbor_pair_rate": 0.16510957679461766,
+          "near_neighbor_pairs": 632371,
+          "near_neighbor_ticks": 8998,
+          "observed_charges": 8999,
+          "planned_effective_heal_channels": 0,
+          "planned_support_travelers": 2347,
+          "predicted_new_damage_targets": 2818,
+          "predicted_new_damage_targets_pending": 5,
+          "shot_prediction_missing": 0,
+          "shot_prediction_samples": 1521,
+          "skipped_ticks": 0,
+          "state_observation_ticks": 9000,
+          "support_anchor_samples": 35938,
+          "support_travel_ticks": 612,
+          "team_slot": 1,
+          "telemetry_schema": "m02_behavior_v1",
+          "zero_marginal_candidates_skipped": 3107384,
+          "zero_marginal_fire_suppressions": 100935
+        }
+      ],
+      "config_sha256": "6287287dc7f0a2f3d86c42c13a71bc3994dd339e185a9dcc99ff4f70982f55d0",
+      "end_reason": "tokens",
+      "engine_elapsed": "4.3170305s",
+      "engine_result": {
+        "reason": "tokens",
+        "tick": 9000,
+        "winner": "B"
+      },
+      "exit_code": 0,
+      "fatal_marker": false,
+      "final_tick": 9000,
+      "id": "soak-v1-b",
+      "logs": {
+        "bot_a": {
+          "bytes": 16779,
+          "path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-b/a.log",
+          "sha256": "765469be9ea80a97656c3b6e51767fa27b339a138aa36274d09fe4c2e6fbcd72"
+        },
+        "bot_b": {
+          "bytes": 16781,
+          "path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-b/b.log",
+          "sha256": "640b27b5cdbe0c87808cf049b18987c52fa6ccc38c1a225d1eea94a1099c03cd"
+        },
+        "gamelog": {
+          "bytes": 32108445,
+          "path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-b/game.mmgl",
+          "sha256": "10c6a2febeb398f9f45fd784c0e2c63154f29297c81f3bd9caee84e5ea79afdd"
+        },
+        "runner": {
+          "bytes": 15,
+          "path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-b/runner.log",
+          "sha256": "cd0011d17295328eed22b930467a2892d7b99501e4bdf3cc36dd8cc5840bc6fa"
+        }
+      },
+      "official_error_log_clean": true,
+      "opponent": "v1_frozen_same_batch",
+      "opponent_binary_sha256": "e2ac1ca3e1e88ad37cab0b44f1e29be0f631d4b3e89863c90c2917f450c47967",
+      "repetition": 1,
+      "result_line_present": true,
+      "time_enforcement": true,
+      "valid": true,
+      "wall_seconds": 4.327997,
+      "winner": "B"
+    }
+  ],
+  "round": "m02",
+  "run_id": "soak-4e66145",
+  "schema_version": 2,
+  "seed": {
+    "engine_seed": null,
+    "engine_seed_controlled": false,
+    "policy_seed": null,
+    "reason": "The pinned engine exposes no seed CLI option; the static-payload fixture controls lifecycle duration, not engine process randomness."
+  },
+  "status": "ok",
+  "suite_id": "m02-soak",
+  "tests": {
+    "failed": 0,
+    "passed": 66,
+    "skipped": 0
+  },
+  "tests_by_category": {
+    "bot": {
+      "failed": 0,
+      "passed": 17,
+      "skipped": 0
+    },
+    "opponents": {
+      "failed": 0,
+      "passed": 5,
+      "skipped": 0
+    },
+    "rules": {
+      "failed": 0,
+      "passed": 26,
+      "skipped": 0
+    },
+    "tools": {
+      "failed": 0,
+      "passed": 18,
+      "skipped": 0
+    }
+  }
+}

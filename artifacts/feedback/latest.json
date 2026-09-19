@@ -1,34 +1,83 @@
 {
-  "schema_version": 1,
-  "round": 1,
-  "task": "M1",
-  "status": "completed",
+  "schema_version": 2,
+  "round": 2,
+  "task": "M1.1+M2a",
+  "status": "completed_with_open_items",
   "repository": "Caesiumatic/mechmania32_cs",
   "branch": "main",
-  "base_commit": "f02be38adce7fcf8e7dd5b5f8623c147bb8c449d",
-  "evaluated_code_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+  "base_commit": "e789961d7dedb00f70b1947dfd1435bc68a65cfe",
+  "previous_code_commit": "d13c2360e1ce5708078b45254fc862de8ce8341f",
+  "evaluated_code_commit": "761c8f80b01fbbf5d50cd2e4b4b719d269e7ea08",
+  "report_path": "docs/reports/mechmania32_report2.md",
+  "rules_path": "docs/rules/mechmania32_rules2.md",
+  "metrics_path": "artifacts/summaries/m02/metrics.json",
+  "manifest_path": "artifacts/summaries/m02/manifest.json",
+  "audit_path": "artifacts/summaries/m02/audit.json",
   "upstream": {
     "engine": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
     "bot_client_engine": "879578d448251d0acc7f10eef3d7fe5450758096",
     "wiki": "6af083bb4c28a4e18d2f7fcdda5a380aebc0545f",
     "starterpack": "f9960353f414938002ea2bb18161b6851a71c40c",
-    "cli": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214"
+    "cli": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+    "source_lock_status": "verified"
   },
-  "report_path": "docs/reports/mechmania32_report1.md",
-  "rules_path": "docs/rules/mechmania32_rules1.md",
-  "metrics_path": "artifacts/summaries/m01/metrics.json",
-  "manifest_path": "artifacts/summaries/m01/manifest.json",
-  "audit_path": "artifacts/summaries/m01/audit.json",
-  "tests": {
-    "passed": 22,
-    "failed": 0,
-    "skipped": 0
+  "toolchain": {
+    "used": "stable-1.98.1",
+    "target": "aarch64-apple-darwin",
+    "os": "Darwin 25.3.0 arm64",
+    "build_profile": "release",
+    "official_declared": "nightly-2024-07-25",
+    "official_compatibility": "incompatible_with_current_locked_dependencies",
+    "fingerprint": "c0199d6128ca2eed3c839a40d00e93a4fdb9615bd24ff59881f12c4a66f64444"
   },
-  "formal_matches_completed": 8,
-  "engine_seed_controlled": false,
+  "local_validation_status": "pass_with_warnings",
+  "server_validation_status": "not_run_requires_shi_authorization",
+  "tests": {"passed": 66, "failed": 0, "skipped": 0},
+  "tests_by_category": {
+    "bot": {"passed": 17, "failed": 0, "skipped": 0},
+    "rules": {"passed": 26, "failed": 0, "skipped": 0},
+    "opponents": {"passed": 5, "failed": 0, "skipped": 0},
+    "tools": {"passed": 18, "failed": 0, "skipped": 0}
+  },
+  "formal_matches_expected": 32,
+  "formal_matches_completed": 32,
+  "scenario_matches_completed": 2,
+  "long_game_coverage": {
+    "formal_games_at_or_after_6000": 16,
+    "formal_games_at_or_after_9000": 6,
+    "scenario_games_at_or_after_6000": 2,
+    "scenario_games_at_or_after_9000": 2,
+    "maximum_observed_friendly_population": 32
+  },
+  "review_findings_resolved": [
+    "A1 explicit usable toolchain discovery and full platform/compiler recording",
+    "A2 source locks separated from platform-specific build records",
+    "A3 tracked-only clean recovery executed in the required command order with idempotent second bootstrap",
+    "A4 runner generalized by round, suite and run-id with frozen Git-tree opponents and current-input attempt binding",
+    "B1 pre-fix counterexample evidence preserved",
+    "B2-B3 production pure ballistics query matched official scan/eval semantics",
+    "B4 open-movement timing, turn limits and conservative payload/collision handling added",
+    "B5 same-tick marginal damage-set allocation implemented",
+    "B6 256 fixed-seed official oracle queries passed",
+    "C1 full-health healers retain and follow support anchors",
+    "C2 effective current-tick healing is allocated before support travel with three-channel cap",
+    "C3 D06-D10 plus exact R05 range/arc boundaries passed",
+    "fixed m01_v0 and two independent challenge opponents were versioned and tested",
+    "behavior, budget, callback, long-game and high-population evidence was recorded"
+  ],
+  "review_findings_open": [
+    "The referenced review1 document was not provided; prompt2 supplied the implemented finding set.",
+    "Official nightly remains incompatible with the current edition-2024 lock.",
+    "No second OS/architecture or full online empty-cache recovery was executed.",
+    "Enemy next-position collision projection remains incomplete near dynamic entities; uncertain cases are handled conservatively.",
+    "The firing-origin early-return path undercounts geometry uncertainty telemetry.",
+    "The bounded matrix shows material tactical regression for v1 against m01_v0, strafe_pressure and starter_symmetric.",
+    "R24 endgame mining remains CODE versus Wiki DOC open pending organizer clarification."
+  ],
   "blockers": [],
   "next_questions": [
-    "Should the organizer confirm whether endgame mining follows current engine CODE behavior or the conflicting Wiki DOC text (R24)?",
-    "May the locally validated package be submitted to the official service for server-side validation?"
+    "How should engagement and formation weights be retuned to recover v0/starter/strafe performance without removing the verified ballistics and healing fixes?",
+    "Can the official dependency lock/toolchain be reconciled and then validated on a second platform and a truly empty online cache?",
+    "Should Shi authorize official server-side package validation, and should the organizer be asked to resolve R24 endgame mining semantics?"
   ]
 }

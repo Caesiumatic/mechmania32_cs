@@ -1,0 +1,523 @@
+{
+  "artifact_root": "artifacts/summaries/m02/m02-soak/soak-4e66145",
+  "binaries": {
+    "candidates": {
+      "v1": {
+        "bytes": 1031760,
+        "path": ".local/target/runs/m02-soak/soak-4e66145/candidate-v1/release/bot",
+        "sha256": "e2ac1ca3e1e88ad37cab0b44f1e29be0f631d4b3e89863c90c2917f450c47967"
+      }
+    },
+    "engine": {
+      "bytes": 2002832,
+      "path": ".local/target/runs/m02-soak/soak-4e66145/engine-fixture/release/mm-engine",
+      "sha256": "29da5866114c61a58613af7cef6a80c96bd729fcb2a0cedb636700bb9470fa2b"
+    },
+    "opponents": {
+      "v1_frozen_same_batch": {
+        "bytes": 1031760,
+        "path": ".local/target/runs/m02-soak/soak-4e66145/opponent-v1_frozen_same_batch/release/bot",
+        "sha256": "e2ac1ca3e1e88ad37cab0b44f1e29be0f631d4b3e89863c90c2917f450c47967"
+      }
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/opt/homebrew/opt/rustup/bin/cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/runs/m02/m02-soak/soak-4e66145/projects/engine-fixture/Cargo.toml",
+        "--release",
+        "--bin",
+        "mm-engine"
+      ],
+      "cwd": ".",
+      "duration_seconds": 13.666566,
+      "exit_code": 0,
+      "label": "build fixture engine",
+      "log_bytes": 2785,
+      "log_path": ".local/runs/m02/m02-soak/soak-4e66145/build-logs/engine-fixture.log",
+      "log_sha256": "082e29792066a2e5b0fb7eb22a0bb1ba9177d37156eb76c0ad6fe1b5f4057c87",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/opt/homebrew/opt/rustup/bin/cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/runs/m02/m02-soak/soak-4e66145/projects/candidate-v1/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 13.669804,
+      "exit_code": 0,
+      "label": "build candidate v1",
+      "log_bytes": 2464,
+      "log_path": ".local/runs/m02/m02-soak/soak-4e66145/build-logs/candidate-v1.log",
+      "log_sha256": "7cde88a3c8b480322c7813ba30a037c732c75a8af8f72849ee272dc1a7540e28",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/opt/homebrew/opt/rustup/bin/cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/runs/m02/m02-soak/soak-4e66145/projects/opponent-v1_frozen_same_batch/Cargo.toml",
+        "--release"
+      ],
+      "cwd": ".",
+      "duration_seconds": 13.299725,
+      "exit_code": 0,
+      "label": "build opponent v1_frozen_same_batch",
+      "log_bytes": 2481,
+      "log_path": ".local/runs/m02/m02-soak/soak-4e66145/build-logs/opponent-v1_frozen_same_batch.log",
+      "log_sha256": "a22f319b9aed0016982c39bf2434e77cb0431d322cc2d526d71b8670fbb4e177",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/.local/target/runs/m02-soak/soak-4e66145/engine-fixture/release/mm-engine",
+        "$REPO/.local/target/runs/m02-soak/soak-4e66145/candidate-v1/release/bot",
+        "$REPO/.local/target/runs/m02-soak/soak-4e66145/opponent-v1_frozen_same_batch/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-a/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-a/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-a/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 4.939282,
+      "exit_code": 0,
+      "label": "soak-v1-a",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-a/runner.log",
+      "log_sha256": "cd0011d17295328eed22b930467a2892d7b99501e4bdf3cc36dd8cc5840bc6fa",
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "$REPO/.local/target/runs/m02-soak/soak-4e66145/engine-fixture/release/mm-engine",
+        "$REPO/.local/target/runs/m02-soak/soak-4e66145/opponent-v1_frozen_same_batch/release/bot",
+        "$REPO/.local/target/runs/m02-soak/soak-4e66145/candidate-v1/release/bot",
+        "-o",
+        "g:$REPO/.local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-b/game.mmgl",
+        "-o",
+        "a,ae:$REPO/.local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-b/a.log",
+        "-o",
+        "b,be:$REPO/.local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-b/b.log"
+      ],
+      "cwd": ".",
+      "duration_seconds": 4.327997,
+      "exit_code": 0,
+      "label": "soak-v1-b",
+      "log_bytes": 15,
+      "log_path": ".local/runs/m02/m02-soak/soak-4e66145/matches/soak-v1-b/runner.log",
+      "log_sha256": "cd0011d17295328eed22b930467a2892d7b99501e4bdf3cc36dd8cc5840bc6fa",
+      "timed_out": false
+    }
+  ],
+  "configs": {
+    "fixture": {
+      "bytes": 8846,
+      "path": "lab/fixtures/m02_soak_static_payload.json",
+      "sha256": "6287287dc7f0a2f3d86c42c13a71bc3994dd339e185a9dcc99ff4f70982f55d0"
+    },
+    "suite": {
+      "bytes": 1484,
+      "path": "configs/suites/m02_soak.json",
+      "sha256": "af40592da317ef142b9fe88e43407ffd1462280f2b6a1fa47ad20d7b7ac5471f"
+    },
+    "toolchain_lock": {
+      "bytes": 1069,
+      "path": "configs/toolchain.lock.json",
+      "sha256": "a9b5264a3ece0ef1056c607f66001a8736eeb60d34580b7c8d72e0a022724578"
+    },
+    "upstream_lock": {
+      "bytes": 5078,
+      "path": "configs/upstream.lock.json",
+      "sha256": "f403cccfd216e1061850f158f8f9306c0de263738a1bda1c45ae35d1bd14c440"
+    }
+  },
+  "engine_build_record": {
+    "base_source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+    "base_source_tree_sha256": "ec25201d3c0aba8d5d6004bc17715370a41f4db3a55be1589f52925999c10879",
+    "binary": {
+      "bytes": 2002832,
+      "path": ".local/target/runs/m02-soak/soak-4e66145/engine-fixture/release/mm-engine",
+      "sha256": "29da5866114c61a58613af7cef6a80c96bd729fcb2a0cedb636700bb9470fa2b"
+    },
+    "build_fingerprint": "993e80246b19d81b9e54bcfd5327b26ca320e5293d648cc234fc2505e00d5f59",
+    "build_fingerprint_inputs": {
+      "base_source_checks": {
+        "engine:Cargo.lock": true,
+        "engine:Cargo.toml": true,
+        "engine_archive": true,
+        "engine_checkout_matches_archive_tree": true,
+        "engine_checkout_present": true
+      },
+      "base_source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+      "base_source_tree_sha256": "ec25201d3c0aba8d5d6004bc17715370a41f4db3a55be1589f52925999c10879",
+      "cargo_lock_sha256": "758d38acdd4a066c09a53f5fd55cc2b54e7b1f9c3041c633173d87a40ee82f1d",
+      "fixture_sha256": "6287287dc7f0a2f3d86c42c13a71bc3994dd339e185a9dcc99ff4f70982f55d0",
+      "patch_sha256": "b3bf5a58e1ca7e435d8a7adeca6dbf9c50e7ca16ee8890fe64e152a7ffe08eef",
+      "profile": "release",
+      "target_triple": "aarch64-apple-darwin",
+      "toolchain_fingerprint": "c0199d6128ca2eed3c839a40d00e93a4fdb9615bd24ff59881f12c4a66f64444"
+    },
+    "command": {
+      "argv": [
+        "/opt/homebrew/opt/rustup/bin/cargo",
+        "+stable",
+        "build",
+        "--locked",
+        "--manifest-path",
+        "$REPO/.local/runs/m02/m02-soak/soak-4e66145/projects/engine-fixture/Cargo.toml",
+        "--release",
+        "--bin",
+        "mm-engine"
+      ],
+      "cwd": ".",
+      "duration_seconds": 13.666566,
+      "exit_code": 0,
+      "log_bytes": 2785,
+      "log_path": ".local/runs/m02/m02-soak/soak-4e66145/build-logs/engine-fixture.log",
+      "log_sha256": "082e29792066a2e5b0fb7eb22a0bb1ba9177d37156eb76c0ad6fe1b5f4057c87",
+      "timed_out": false
+    },
+    "fixture": {
+      "bytes": 8846,
+      "path": "lab/fixtures/m02_soak_static_payload.json",
+      "sha256": "6287287dc7f0a2f3d86c42c13a71bc3994dd339e185a9dcc99ff4f70982f55d0"
+    },
+    "kind": "fixture_build",
+    "patch": {
+      "description": "Replace the fixed GameConfig literal with compile-time deserialization of scenario-config.json.",
+      "diff": {
+        "bytes": 1760,
+        "path": ".local/runs/m02/m02-soak/soak-4e66145/engine-fixture.patch",
+        "sha256": "b3bf5a58e1ca7e435d8a7adeca6dbf9c50e7ca16ee8890fe64e152a7ffe08eef"
+      },
+      "patched_file_sha256": "43222ca712679a4d821375c439cfb9348da0e20d3ffee1176b06c235b7c66509",
+      "path": "src/engine.rs"
+    },
+    "patched_source_tree_sha256": "fbfcfbcab65667a1fc433be141f9e485845fde030ecbd8ebf997936393db5e76"
+  },
+  "evaluated_code_commit": "4e6614544cb7e1e78377e60a9af478a0545555e6",
+  "formal_match_count": 2,
+  "generated_at": "2026-09-19T05:44:37.483648Z",
+  "inputs": {
+    "digest": "9e4d623e0168da34e3831ed1a33d88855d470071a7bff874eb20a4041341c8d8",
+    "fixture": {
+      "path": "lab/fixtures/m02_soak_static_payload.json",
+      "sha256": "6287287dc7f0a2f3d86c42c13a71bc3994dd339e185a9dcc99ff4f70982f55d0"
+    },
+    "opponents_test_tree": "6e11535af4f9f5e90811a0e1b5e393507c1dd50f1895452752aef7fda3e89371",
+    "round": "m02",
+    "rules_tree": "107fa2c676d882e457f3dbe3cfee22fcd426b09827680b2c06e35076736c8526",
+    "strategy_sources": {
+      "candidate:v1": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy",
+        "sha256": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d"
+      },
+      "opponent:v1_frozen_same_batch": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy",
+        "sha256": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d"
+      }
+    },
+    "suite": {
+      "path": "configs/suites/m02_soak.json",
+      "sha256": "af40592da317ef142b9fe88e43407ffd1462280f2b6a1fa47ad20d7b7ac5471f"
+    },
+    "toolchain_lock": "a9b5264a3ece0ef1056c607f66001a8736eeb60d34580b7c8d72e0a022724578",
+    "toolchain_selection": {
+      "build_profile": "release",
+      "cargo": {
+        "exit_code": 0,
+        "output": "cargo 1.98.1 (797e8a9bc 2026-08-05)\nrelease: 1.98.1\ncommit-hash: 797e8a9bca276c1c9f9f738d2a20f484fa4eea9d\ncommit-date: 2026-08-05\nhost: aarch64-apple-darwin\nlibgit2: 1.9.4 (sys:0.21.0 vendored)\nlibcurl: 8.7.1 (sys:0.4.90+curl-8.21.0 system ssl:(SecureTransport) LibreSSL/3.3.6)\nssl: OpenSSL 3.6.3 9 Jun 2026\nos: Mac OS 26.3.1 [64-bit]"
+      },
+      "cargo_home_scope": "project_local",
+      "cargo_home_source": "toolchain_lock_project_local",
+      "channel": "stable",
+      "environment_overrides": {},
+      "executables": {
+        "cargo": "/opt/homebrew/opt/rustup/bin/cargo",
+        "rustc": "/opt/homebrew/opt/rustup/bin/rustc",
+        "rustfmt": "/opt/homebrew/opt/rustup/bin/rustfmt",
+        "rustup": "/opt/homebrew/bin/rustup"
+      },
+      "fingerprint": "c0199d6128ca2eed3c839a40d00e93a4fdb9615bd24ff59881f12c4a66f64444",
+      "rustc": {
+        "exit_code": 0,
+        "output": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: aarch64-apple-darwin\nrelease: 1.98.1\nLLVM version: 22.1.8"
+      },
+      "rustup_home_scope": "project_local",
+      "rustup_home_source": "toolchain_lock_project_local",
+      "target_triple": "aarch64-apple-darwin"
+    },
+    "upstream_lock": "f403cccfd216e1061850f158f8f9306c0de263738a1bda1c45ae35d1bd14c440",
+    "upstream_source_trees": {
+      "cli": {
+        "path": ".local/upstream/cli",
+        "sha256": "b13f40ed97c831e812c9bfa4ec5c5417e37ecc467b4cfa3ba3b380efaee255de"
+      },
+      "engine": {
+        "path": ".local/upstream/engine",
+        "sha256": "ec25201d3c0aba8d5d6004bc17715370a41f4db3a55be1589f52925999c10879"
+      },
+      "starterpack": {
+        "path": ".local/upstream/rust-starterpack",
+        "sha256": "7e37ee548768e43535a38ef7d7b2e3b508a2cf7fc8671891c139c38808201bf7"
+      },
+      "wiki": {
+        "path": ".local/upstream/wiki",
+        "sha256": "3462010b4c6e315d7b32a7c115d222a1ccc661762b749f7a17789c9c4a25e20c"
+      }
+    },
+    "workflow_tests": "aad987d3484eb4208e44d97cd7248e68ce047dd55ee259820b37e0806634c5c8",
+    "workflow_tool": "c7671cd4bab8d65b09c2edc700f1c43050cd2cc72e57d4a388687e82a838dd12"
+  },
+  "repository": {
+    "branch": "main",
+    "head": "4e6614544cb7e1e78377e60a9af478a0545555e6",
+    "remote_origin": "https://github.com/Caesiumatic/mechmania32_cs.git",
+    "status_porcelain": [
+      "?? artifacts/summaries/m02/cleancheck/clean-4e66145/manifest.json",
+      "?? artifacts/summaries/m02/m02-regression/regression-4e66145/manifest.json",
+      "?? artifacts/summaries/m02/m02-regression/regression-4e66145/metrics.json",
+      "?? artifacts/summaries/m02/m02-soak/soak-4e66145/metrics.json",
+      "?? artifacts/summaries/m02/pre_fix_ballistics.json"
+    ]
+  },
+  "round": "m02",
+  "run_id": "soak-4e66145",
+  "run_root": ".local/runs/m02/m02-soak/soak-4e66145",
+  "schema_version": 2,
+  "strategies": {
+    "candidate:v1": {
+      "binary": {
+        "bytes": 1031760,
+        "path": ".local/target/runs/m02-soak/soak-4e66145/candidate-v1/release/bot",
+        "sha256": "e2ac1ca3e1e88ad37cab0b44f1e29be0f631d4b3e89863c90c2917f450c47967"
+      },
+      "copied_strategy_sha256": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d",
+      "id": "v1",
+      "project": ".local/runs/m02/m02-soak/soak-4e66145/projects/candidate-v1",
+      "role": "candidate",
+      "source": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy",
+        "sha256": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d"
+      }
+    },
+    "opponent:v1_frozen_same_batch": {
+      "binary": {
+        "bytes": 1031760,
+        "path": ".local/target/runs/m02-soak/soak-4e66145/opponent-v1_frozen_same_batch/release/bot",
+        "sha256": "e2ac1ca3e1e88ad37cab0b44f1e29be0f631d4b3e89863c90c2917f450c47967"
+      },
+      "copied_strategy_sha256": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d",
+      "id": "v1_frozen_same_batch",
+      "project": ".local/runs/m02/m02-soak/soak-4e66145/projects/opponent-v1_frozen_same_batch",
+      "role": "opponent",
+      "source": {
+        "kind": "working_strategy_tree",
+        "path": "bot/src/strategy",
+        "sha256": "a84afb482481da0b5428fb49d8018795e3c52764d12c758d29ecd6e2074a411d"
+      }
+    }
+  },
+  "suite_id": "m02-soak",
+  "time_enforcement": true,
+  "toolchain": {
+    "architecture": "arm64",
+    "build_profile": "release",
+    "caller_toolchain_detected": false,
+    "cargo_home": "$REPO/.local/cargo",
+    "cargo_home_scope": "project_local",
+    "cargo_home_source": "toolchain_lock_project_local",
+    "channel": "stable",
+    "commands": {
+      "cargo_version": {
+        "exit_code": 0,
+        "output": "cargo 1.98.1 (797e8a9bc 2026-08-05)\nrelease: 1.98.1\ncommit-hash: 797e8a9bca276c1c9f9f738d2a20f484fa4eea9d\ncommit-date: 2026-08-05\nhost: aarch64-apple-darwin\nlibgit2: 1.9.4 (sys:0.21.0 vendored)\nlibcurl: 8.7.1 (sys:0.4.90+curl-8.21.0 system ssl:(SecureTransport) LibreSSL/3.3.6)\nssl: OpenSSL 3.6.3 9 Jun 2026\nos: Mac OS 26.3.1 [64-bit]"
+      },
+      "rustc_vv": {
+        "exit_code": 0,
+        "output": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: aarch64-apple-darwin\nrelease: 1.98.1\nLLVM version: 22.1.8"
+      },
+      "rustup_active": {
+        "exit_code": 0,
+        "output": "stable-aarch64-apple-darwin (default)"
+      }
+    },
+    "compiler_fingerprint": "71aa34f5268400fc443d3d54d309a470e6d8bab43bb6fbb46b300f4239c5633a",
+    "environment_overrides": {},
+    "executable_scope": {
+      "cargo": "shared",
+      "rustc": "shared",
+      "rustfmt": "shared",
+      "rustup": "shared"
+    },
+    "executable_sources": {
+      "cargo": "configured_shared_search",
+      "rustc": "configured_shared_search",
+      "rustfmt": "configured_shared_search",
+      "rustup": "caller_path"
+    },
+    "executables": {
+      "cargo": "/opt/homebrew/opt/rustup/bin/cargo",
+      "rustc": "/opt/homebrew/opt/rustup/bin/rustc",
+      "rustfmt": "/opt/homebrew/opt/rustup/bin/rustfmt",
+      "rustup": "/opt/homebrew/bin/rustup"
+    },
+    "fingerprint": "c0199d6128ca2eed3c839a40d00e93a4fdb9615bd24ff59881f12c4a66f64444",
+    "lock_path": "configs/toolchain.lock.json",
+    "lock_sha256": "a9b5264a3ece0ef1056c607f66001a8736eeb60d34580b7c8d72e0a022724578",
+    "official_compatibility": {
+      "reason": "The declared nightly Cargo cannot parse locked edition-2024 dependencies (including clap_lex 1.1.1); local validation uses the recorded stable toolchain while official compatibility remains a separate diagnostic.",
+      "status": "incompatible_with_current_locked_dependencies"
+    },
+    "official_declared_channel": "nightly-2024-07-25",
+    "os": "Darwin",
+    "os_release": "25.3.0",
+    "rustup_home": "$REPO/.local/rustup",
+    "rustup_home_scope": "project_local",
+    "rustup_home_source": "toolchain_lock_project_local",
+    "schema_version": 1,
+    "target_triple": "aarch64-apple-darwin",
+    "usable": true
+  },
+  "upstream_source_lock": {
+    "bot_dependency": {
+      "crate": "mm-engine",
+      "default_features": false,
+      "features": [
+        "client"
+      ],
+      "locked_rev": "879578d448251d0acc7f10eef3d7fe5450758096",
+      "lockfile_path": "bot/Cargo.lock",
+      "lockfile_sha256": "509d2cdba699d035ae8fdbc42d3973f2751e909b2f3cb745bb32bb6ff37ba8e2",
+      "manifest_path": "bot/Cargo.toml",
+      "manifest_sha256": "2ebdb0e5647fb90c3b762cdaf2d7e4f55e221086af9f8c77032bdc079929ace1",
+      "repository_url": "https://github.com/mechmania/engine.git",
+      "requested_rev": null
+    },
+    "builds": {
+      "cli": {
+        "binary_name": "mm-cli",
+        "output_path": ".local/bin/mm-cli",
+        "source_commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+        "source_path": ".local/upstream/cli"
+      },
+      "engine": {
+        "binary_name": "mm-engine",
+        "output_path": "bot/.mm/bin/mm-engine",
+        "source_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+        "source_lock_path": "bot/.mm/lock.toml",
+        "source_lock_sha256": "6d6f835a17969086ea2228f754822989f92a20a8c7779a71ab194c9f06f540db",
+        "source_lock_template_path": "configs/mm-cli-lock.toml",
+        "source_path": ".local/upstream/engine"
+      }
+    },
+    "client_runtime_compatibility": {
+      "changed_paths": [
+        "src/game/action.rs"
+      ],
+      "client_commit": "879578d448251d0acc7f10eef3d7fe5450758096",
+      "client_feature_affected": false,
+      "compare_url": "https://github.com/mechmania/engine/compare/879578d448251d0acc7f10eef3d7fe5450758096...4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+      "reason": "The runtime adds the engine-only same-tick shot-death plus self-destruct removal fix; the client feature does not compile action.rs.",
+      "runtime_commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+      "runtime_commits_ahead": 1,
+      "status": "accepted"
+    },
+    "schema_version": 2,
+    "source": {
+      "audit_date": "2026-09-18",
+      "base_commit": "f02be38adce7fcf8e7dd5b5f8623c147bb8c449d",
+      "kind": "audited_upstream_snapshot",
+      "repository": "Caesiumatic/mechmania32_cs"
+    },
+    "sources": {
+      "cli": {
+        "archive_sha256": "3fcf97825033b37ad92049d0914e81760542f36842eb04e44dfaa71bee4fb1e3",
+        "archive_url": "https://github.com/mechmania/cli/archive/4c5bb2f33d7fdee10e9d8f311f382ff198b81214.tar.gz",
+        "commit": "4c5bb2f33d7fdee10e9d8f311f382ff198b81214",
+        "file_sha256": {
+          "Cargo.lock": "ab1b72ff100106f995a0441b501726988dd295a4d733fbf4762c6d95162d5c97",
+          "Cargo.toml": "9406204bd556591ebdc44c424f2b00f2d0d8d28b0a0ccbde9ecab9cc8b5121d8"
+        },
+        "local_archive": ".local/downloads/cli-4c5bb2f3.tar.gz",
+        "local_source": ".local/upstream/cli",
+        "repository_url": "https://github.com/mechmania/cli.git",
+        "rust_toolchain": "nightly-2024-07-25"
+      },
+      "engine": {
+        "archive_sha256": "7940b76b9365bf36501c23462ed1334ca43df8e05821f33f58160bd56f2332d7",
+        "archive_url": "https://github.com/mechmania/engine/archive/4cbd3467e6617e330d42cb78ae3327ab2c88926a.tar.gz",
+        "commit": "4cbd3467e6617e330d42cb78ae3327ab2c88926a",
+        "file_sha256": {
+          "Cargo.lock": "758d38acdd4a066c09a53f5fd55cc2b54e7b1f9c3041c633173d87a40ee82f1d",
+          "Cargo.toml": "73df7239c844fbad60c2ed6d99e8459686cc6a858fc5ab04c14f5fe098694cf1"
+        },
+        "local_archive": ".local/downloads/engine-4cbd3467.tar.gz",
+        "local_source": ".local/upstream/engine",
+        "repository_url": "https://github.com/mechmania/engine.git",
+        "rust_toolchain": "nightly-2024-07-25"
+      },
+      "starterpack": {
+        "archive_sha256": "fdeb22694a86ea86e9c2460bcefe89916df17dfd0fc18751c0fe55289eb8f694",
+        "archive_url": "https://github.com/mechmania/rust-starterpack/archive/f9960353f414938002ea2bb18161b6851a71c40c.tar.gz",
+        "commit": "f9960353f414938002ea2bb18161b6851a71c40c",
+        "file_sha256": {
+          "Cargo.lock": "509d2cdba699d035ae8fdbc42d3973f2751e909b2f3cb745bb32bb6ff37ba8e2",
+          "Cargo.toml": "2ebdb0e5647fb90c3b762cdaf2d7e4f55e221086af9f8c77032bdc079929ace1"
+        },
+        "local_archive": ".local/downloads/rust-starterpack-f9960353.tar.gz",
+        "local_source": ".local/upstream/rust-starterpack",
+        "repository_url": "https://github.com/mechmania/rust-starterpack.git",
+        "rust_toolchain": "nightly-2024-07-25"
+      },
+      "wiki": {
+        "archive_sha256": "0e1260aee9951d2398bbfb8d3e0a3757d50b3570e8d5c40ea239b0af2972bc23",
+        "archive_url": "https://github.com/mechmania/wiki/archive/6af083bb4c28a4e18d2f7fcdda5a380aebc0545f.tar.gz",
+        "commit": "6af083bb4c28a4e18d2f7fcdda5a380aebc0545f",
+        "file_sha256": {
+          "README.md": "12b30990ac1bf65b439718fa98f9db79e281593c2e8aa955b0871c21dc6e7062",
+          "mechanics.md": "c83a27829a7ff357e22a941e13b927d64cc057b15b97fc76b6b558bf1b1e6ad0"
+        },
+        "local_archive": ".local/downloads/wiki-6af083bb.tar.gz",
+        "local_source": ".local/upstream/wiki",
+        "repository_url": "https://github.com/mechmania/wiki.git"
+      }
+    },
+    "version": "m02-source-v1"
+  },
+  "workflow_records": {
+    "bootstrap": {
+      "bytes": 16215,
+      "path": ".local/records/bootstrap-latest.json",
+      "sha256": "49cfdbff0dd739b4abc924bd48ddac89e6f443ad9e7201b2cd92385d49d147f1"
+    },
+    "doctor": {
+      "bytes": 5355,
+      "path": ".local/records/doctor-latest.json",
+      "sha256": "77a51c0ededc25cb30ca82eb7fe3652067a828eabe2ede17e7c528fd419e000d"
+    },
+    "test": {
+      "bytes": 12453,
+      "path": ".local/records/test-latest.json",
+      "sha256": "303c5506c142de9e2cb569bfe496b6394d82a0ff820b107b4b2ea94c9db47479"
+    }
+  }
+}
