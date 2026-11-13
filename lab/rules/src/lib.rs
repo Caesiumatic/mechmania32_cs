@@ -1,5 +1,4 @@
 //! Independent contract-test crate for the MechMania 32 engine.
 //!
-//! The executable behavior lives in the pinned `mm-engine` dependency.  This crate only
-//! supplies integration tests, so production bot code cannot accidentally depend on the
-//! engine-only feature surface.
+//! Integration tests exercise the pinned `mm-engine` dependency. Keeping this crate
+//! separate from the production bot isolates the engine-only feature surface.

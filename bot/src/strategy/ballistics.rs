@@ -1,10 +1,8 @@
 //! Pure, production-side blaster geometry.
 //!
-//! This mirrors the pinned engine's `geom::scan` ordering and `step_blasters`
-//! explosion rule without depending on the engine-only feature.  Behavioural
-//! prediction (for example, where an enemy will move next tick) belongs to the
-//! caller: every coordinate supplied here is interpreted as the coordinate at
-//! firing time, after movement and collision resolution.
+//! Match the pinned engine's `geom::scan` ordering and `step_blasters` explosion
+//! rule using the bot-client types. Callers supply positions at firing time,
+//! after movement and collision resolution, and handle any motion prediction.
 
 use crate::core::*;
 
@@ -48,7 +46,7 @@ pub struct ShotResult {
     pub first_hit: Option<FirstHit>,
     /// All enemy hulls touched by the explosion, including protected enemies.
     pub physical_mask: u32,
-    /// The subset that may actually take damage on this tick.
+    /// The subset eligible to take damage on this tick.
     pub damageable_mask: u32,
 }
 

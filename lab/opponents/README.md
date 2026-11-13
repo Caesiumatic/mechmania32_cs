@@ -51,6 +51,7 @@ termination paths, so the two-direction v1 self-play plan in `configs/suites/m02
 forces both games to exercise the 6000-9000 lifecycle window unless there is an engine/bot
 failure.
 
-This suite is classified `soak_scenario`: it is not part of the default-initial-state formal
-32-game comparison, and no result is claimed until the timed suite has actually run and its
-manifest validates `final_tick` and callback/budget coverage.
+This `soak_scenario` suite measures lifecycle coverage separately from the formal
+32-game comparison under default initial conditions. A completed timed run and
+a manifest validating `final_tick` and callback/budget coverage are required to
+establish its result.
